@@ -19,6 +19,17 @@ import {
   shortenAddress,
 } from "./candy-machine";
 
+import {
+  selectAddress,
+  selectBalance,
+  setConnected,
+  setAddress,
+  setBalance,
+  setLoading,
+  selectLoading,
+} from "./redux/app";
+import { useDispatch, useSelector } from "react-redux";
+
 const ConnectButton = styled(WalletDialogButton)``;
 
 const CounterText = styled.span``; // add your styles here
@@ -37,10 +48,13 @@ export interface HomeProps {
 }
 
 const Home = (props: HomeProps) => {
-  const [balance, setBalance] = useState<number>();
   const [isActive, setIsActive] = useState(false); // true when countdown completes
   const [isSoldOut, setIsSoldOut] = useState(false); // true when items remaining is zero
-  const [isMinting, setIsMinting] = useState(false); // true when user got to press MINT
+  const dispatch = useDispatch();
+  const balance = useSelector(selectBalance);
+  const loading = useSelector(selectLoading);
+  const addressFull = useSelector(selectAddress);
+  const addressShort = shortenAddress(addressFull);
 
   const [alertState, setAlertState] = useState<AlertState>({
     open: false,
@@ -53,9 +67,10 @@ const Home = (props: HomeProps) => {
   const wallet = useWallet();
   const [candyMachine, setCandyMachine] = useState<CandyMachine>();
 
+  // Mint Function
   const onMint = async () => {
     try {
-      setIsMinting(true);
+      dispatch(setLoading(true));
       if (wallet.connected && candyMachine?.program && wallet.publicKey) {
         const mintTxId = await mintOneToken(
           candyMachine,
@@ -115,19 +130,25 @@ const Home = (props: HomeProps) => {
         const balance = await props.connection.getBalance(wallet?.publicKey);
         setBalance(balance / LAMPORTS_PER_SOL);
       }
-      setIsMinting(false);
+      dispatch(setLoading(false));
     }
   };
 
+  // Set Address & Balance
   useEffect(() => {
     (async () => {
       if (wallet?.publicKey) {
         const balance = await props.connection.getBalance(wallet.publicKey);
-        setBalance(balance / LAMPORTS_PER_SOL);
+        dispatch(setBalance(balance / LAMPORTS_PER_SOL));
+        // setCompBalance(balance / LAMPORTS_PER_SOL);
+
+        const address = wallet.publicKey?.toBase58() || "";
+        dispatch(setAddress(address));
       }
     })();
   }, [wallet, props.connection]);
 
+  //Set Connected
   useEffect(() => {
     (async () => {
       if (
@@ -155,14 +176,13 @@ const Home = (props: HomeProps) => {
       setIsSoldOut(itemsRemaining === 0);
       setStartDate(goLiveDate);
       setCandyMachine(candyMachine);
+      dispatch(setConnected(wallet.connected));
     })();
   }, [wallet, props.candyMachineId, props.connection]);
 
   return (
     <main>
-      {wallet.connected && (
-        <p>Address: {shortenAddress(wallet.publicKey?.toBase58() || "")}</p>
-      )}
+      {wallet.connected && <p>Address: {addressShort}</p>}
 
       {wallet.connected && (
         <p>Balance: {(balance || 0).toLocaleString()} SOL</p>
@@ -173,14 +193,14 @@ const Home = (props: HomeProps) => {
           <ConnectButton>Connect Wallet</ConnectButton>
         ) : (
           <MintButton
-            disabled={isSoldOut || isMinting || !isActive}
+            disabled={isSoldOut || loading || !isActive}
             onClick={onMint}
             variant="contained"
           >
             {isSoldOut ? (
               "SOLD OUT"
             ) : isActive ? (
-              isMinting ? (
+              loading ? (
                 <CircularProgress />
               ) : (
                 "MINT"
