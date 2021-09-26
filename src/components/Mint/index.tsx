@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./style.css";
 import styled from "styled-components";
 import Countdown from "react-countdown";
 import { Button, CircularProgress, Snackbar } from "@material-ui/core";
@@ -27,6 +28,7 @@ import {
   setBalance,
   setLoading,
   selectLoading,
+  setCurrentPage,
 } from "../../redux/app";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -199,42 +201,47 @@ const Mint = () => {
     })();
   }, [wallet, candyMachineId, connection]);
 
-  return (
-    <main>
-      {/* {wallet.connected && <p>Address: {addressShort}</p>} */}
+  useEffect(() => {
+    dispatch(setCurrentPage("mint"));
+  }, []);
 
+  return (
+    <div className="col-12 h-100 d-flex justify-content-center align-items-center">
+      {/* {wallet.connected && <p>Address: {addressShort}</p>} */}
       {/* {wallet.connected && (
         <p>Balance: {(balance || 0).toLocaleString()} SOL</p>
       )} */}
 
-      <MintContainer>
-        {!wallet.connected ? (
-          <ConnectButton>Connect Wallet</ConnectButton>
-        ) : (
-          <MintButton
-            disabled={isSoldOut || loading || !isActive}
-            onClick={onMint}
-            variant="contained"
-          >
-            {isSoldOut ? (
-              "SOLD OUT"
-            ) : isActive ? (
-              loading ? (
-                <CircularProgress />
+      <div className="col-6 mint_box">
+        <MintContainer>
+          {!wallet.connected ? (
+            <ConnectButton>Connect Wallet</ConnectButton>
+          ) : (
+            <MintButton
+              disabled={isSoldOut || loading || !isActive}
+              onClick={onMint}
+              variant="contained"
+            >
+              {isSoldOut ? (
+                "SOLD OUT"
+              ) : isActive ? (
+                loading ? (
+                  <CircularProgress />
+                ) : (
+                  "mint"
+                )
               ) : (
-                "MINT"
-              )
-            ) : (
-              <Countdown
-                date={startDate}
-                onMount={({ completed }) => completed && setIsActive(true)}
-                onComplete={() => setIsActive(true)}
-                renderer={renderCounter}
-              />
-            )}
-          </MintButton>
-        )}
-      </MintContainer>
+                <Countdown
+                  date={startDate}
+                  onMount={({ completed }) => completed && setIsActive(true)}
+                  onComplete={() => setIsActive(true)}
+                  renderer={renderCounter}
+                />
+              )}
+            </MintButton>
+          )}
+        </MintContainer>
+      </div>
 
       <Snackbar
         open={alertState.open}
@@ -248,7 +255,7 @@ const Mint = () => {
           {alertState.message}
         </Alert>
       </Snackbar>
-    </main>
+    </div>
   );
 };
 

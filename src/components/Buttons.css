@@ -59,7 +59,40 @@ rgb(80, 235, 188)
   height: 24px !important;
 }
 
-@media only screen and (max-width: 576px) {
+.nav_button {
+  border-top: 1px solid white;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  height: 70px;
+  background: transparent;
+  text-transform: uppercase;
+  color: white;
+  font-size: 1.25rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav_button_last {
+  border-bottom: 1px solid white;
+}
+
+.nav_button:hover,
+.nav_button_active {
+  background: radial-gradient(
+    circle at right top,
+    rgb(193, 122, 171),
+    rgb(77, 96, 185),
+    rgb(80, 235, 188)
+  );
+  /* font-size: 1.5rem; */
+  /* font-weight: 700; */
+  color: white;
+}
+
+/* @media only screen and (max-width: 576px) {
   .social-buttons {
     margin-top: 20px;
   }
@@ -68,4 +101,4 @@ rgb(80, 235, 188)
     height: 40px;
     font-size: 20px;
   }
-}
+} */

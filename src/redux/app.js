@@ -6,6 +6,7 @@ const initialState = {
   balance: 0,
   connected: false,
   loading: false,
+  currentPage: "mint",
 };
 
 // Slice
@@ -25,17 +26,27 @@ const app = createSlice({
     setLoading: (state, action) => {
       state.loading = action.payload;
     },
+    setCurrentPage: (state, action) => {
+      state.currentPage = action.payload;
+    },
   },
 });
 
 // Actions
-export const { setAddress, setBalance, setConnected, setLoading } = app.actions;
+export const {
+  setAddress,
+  setBalance,
+  setConnected,
+  setLoading,
+  setCurrentPage,
+} = app.actions;
 
 // Selectors
 export const selectAddress = (state) => state.app.address;
 export const selectBalance = (state) => state.app.balance;
 export const selectConnected = (state) => state.app.connected;
 export const selectLoading = (state) => state.app.loading;
+export const selectCurrentPage = (state) => state.app.currentPage;
 
 // Reducer
 export default app.reducer;

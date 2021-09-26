@@ -35,14 +35,6 @@ const App = () => {
       <WalletProvider wallets={wallets} autoConnect>
         <WalletDialogProvider>
           <Home />
-          {/* <Mint
-            candyMachineId={candyMachineId}
-            config={config}
-            connection={connection}
-            startDate={startDateSeed}
-            treasury={treasury}
-            txTimeout={txTimeout}
-          /> */}
         </WalletDialogProvider>
       </WalletProvider>
     </ConnectionProvider>

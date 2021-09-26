@@ -1,0 +1,40 @@
+.nav_box {
+  background: radial-gradient(
+    circle at left bottom,
+    rgb(193, 122, 171),
+    rgb(77, 96, 185),
+    rgb(80, 235, 188)
+  );
+  border-right: 2px solid rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 0px 20px black;
+  overflow: hidden;
+  height: 100%;
+  /* width: 15%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0; */
+}
+
+.nav_logo {
+  padding: 30px 10px;
+}
+
+.nav_links {
+  margin-top: 30px;
+}
+
+.nav_social {
+  position: relative;
+  bottom: 0;
+}
+
+.social_icon {
+  width: 50px;
+}
+
+/* @media only screen and (min-width: 576px) {
+  .header-box {
+    padding: 50px 200px;
+  }
+} */

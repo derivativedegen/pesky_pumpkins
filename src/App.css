@@ -1,3 +1,43 @@
-.App {
+/*
+Colors:
+- pink: rgb(193, 122, 171)
+- blue: rgb(56, 137, 216)
+- yellow: rgb(240, 148, 55)
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+html {
+  height: 100%;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+/* ::-webkit-scrollbar-thumb {
+  background: #ff0000;
+} */
+
+body {
+  min-height: 100%;
+  overflow: auto;
+  margin: 0;
+  padding: 0px;
+  color: white;
+  /* background: linear-gradient(0deg, rgba(51, 38, 38, 0.3), rgba(0, 0, 0, 0.6)),
+    url("images/background.png") no-repeat center center fixed; */
+  /* background: url("images/background.png") no-repeat center center fixed; */
+  /* background-size: cover; */
+  background-color: #000;
   text-align: center;
 }
