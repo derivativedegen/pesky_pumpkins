@@ -1,0 +1,71 @@
+/*
+COLORS:
+- main: rgb(240,148,55), F09437
+- alt: rgb(193, 122, 171), c17aab
+- accent: rgb(56,137,216), 3889D8
+
+rgb(193, 122, 171),
+rgb(77, 96, 185),
+rgb(80, 235, 188)
+*/
+
+.btn-button {
+  align-items: center;
+  border-color: black;
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px black;
+  color: white;
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: 700;
+  height: 50px;
+  justify-content: center;
+  margin: 5px;
+  width: 160px;
+  overflow: hidden;
+  padding: 0 16px;
+  position: relative;
+  text-indent: 0;
+  transition: border 0.185s ease-out;
+  z-index: 3;
+}
+
+.btn-button:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.btn-main {
+  background-color: #f09437;
+}
+
+.btn-alt {
+  background-color: #c17aab;
+}
+
+.btn-accent {
+  background-color: rgb(80, 235, 188);
+  color: black;
+}
+
+.btn-mint {
+  background-color: #3889d8;
+  border: 1px solid black !important;
+}
+
+.btn-nft {
+  background-color: #3889d8;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  height: 24px !important;
+}
+
+@media only screen and (max-width: 576px) {
+  .social-buttons {
+    margin-top: 20px;
+  }
+
+  .btn-button {
+    height: 40px;
+    font-size: 20px;
+  }
+}

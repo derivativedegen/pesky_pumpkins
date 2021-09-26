@@ -17,7 +17,7 @@ import {
   getCandyMachineState,
   mintOneToken,
   shortenAddress,
-} from "./candy-machine";
+} from "../../candy-machine";
 
 import {
   selectAddress,
@@ -27,27 +27,50 @@ import {
   setBalance,
   setLoading,
   selectLoading,
-} from "./redux/app";
+} from "../../redux/app";
 import { useDispatch, useSelector } from "react-redux";
 
 const ConnectButton = styled(WalletDialogButton)``;
-
 const CounterText = styled.span``; // add your styles here
-
 const MintContainer = styled.div``; // add your styles here
+const MintButton = styled(Button)`
+  align-items: center;
+  border-color: black;
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px 2px #000000 !important;
+  color: white;
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: 700;
+  height: 50px;
+  justify-content: center;
+  margin: 5px;
+  width: 160px;
+  overflow: hidden;
+  padding: 0 16px;
+  position: relative;
+  text-indent: 0;
+  transition: border 0.185s ease-out;
+  z-index: 3;
+  background-color: rgb(80, 235, 188);
+  color: black;
+`; // add your styles here
 
-const MintButton = styled(Button)``; // add your styles here
+const treasury = new anchor.web3.PublicKey(
+  process.env.REACT_APP_TREASURY_ADDRESS!
+);
+const config = new anchor.web3.PublicKey(
+  process.env.REACT_APP_CANDY_MACHINE_CONFIG!
+);
+const candyMachineId = new anchor.web3.PublicKey(
+  process.env.REACT_APP_CANDY_MACHINE_ID!
+);
+const rpcHost = process.env.REACT_APP_SOLANA_RPC_HOST!;
+const connection = new anchor.web3.Connection(rpcHost);
+const startDateSeed = parseInt(process.env.REACT_APP_CANDY_START_DATE!, 10);
+const txTimeout = 30000; // milliseconds (confirm this works for your project)
 
-export interface HomeProps {
-  candyMachineId: anchor.web3.PublicKey;
-  config: anchor.web3.PublicKey;
-  connection: anchor.web3.Connection;
-  startDate: number;
-  treasury: anchor.web3.PublicKey;
-  txTimeout: number;
-}
-
-const Home = (props: HomeProps) => {
+const Mint = () => {
   const [isActive, setIsActive] = useState(false); // true when countdown completes
   const [isSoldOut, setIsSoldOut] = useState(false); // true when items remaining is zero
   const dispatch = useDispatch();
@@ -62,7 +85,7 @@ const Home = (props: HomeProps) => {
     severity: undefined,
   });
 
-  const [startDate, setStartDate] = useState(new Date(props.startDate));
+  const [startDate, setStartDate] = useState(new Date(startDateSeed));
 
   const wallet = useWallet();
   const [candyMachine, setCandyMachine] = useState<CandyMachine>();
@@ -74,15 +97,15 @@ const Home = (props: HomeProps) => {
       if (wallet.connected && candyMachine?.program && wallet.publicKey) {
         const mintTxId = await mintOneToken(
           candyMachine,
-          props.config,
+          config,
           wallet.publicKey,
-          props.treasury
+          treasury
         );
 
         const status = await awaitTransactionSignatureConfirmation(
           mintTxId,
-          props.txTimeout,
-          props.connection,
+          txTimeout,
+          connection,
           "singleGossip",
           false
         );
@@ -127,7 +150,7 @@ const Home = (props: HomeProps) => {
       });
     } finally {
       if (wallet?.publicKey) {
-        const balance = await props.connection.getBalance(wallet?.publicKey);
+        const balance = await connection.getBalance(wallet?.publicKey);
         setBalance(balance / LAMPORTS_PER_SOL);
       }
       dispatch(setLoading(false));
@@ -138,7 +161,7 @@ const Home = (props: HomeProps) => {
   useEffect(() => {
     (async () => {
       if (wallet?.publicKey) {
-        const balance = await props.connection.getBalance(wallet.publicKey);
+        const balance = await connection.getBalance(wallet.publicKey);
         dispatch(setBalance(balance / LAMPORTS_PER_SOL));
         // setCompBalance(balance / LAMPORTS_PER_SOL);
 
@@ -146,7 +169,7 @@ const Home = (props: HomeProps) => {
         dispatch(setAddress(address));
       }
     })();
-  }, [wallet, props.connection]);
+  }, [wallet, connection]);
 
   //Set Connected
   useEffect(() => {
@@ -167,26 +190,22 @@ const Home = (props: HomeProps) => {
       } as anchor.Wallet;
 
       const { candyMachine, goLiveDate, itemsRemaining } =
-        await getCandyMachineState(
-          anchorWallet,
-          props.candyMachineId,
-          props.connection
-        );
+        await getCandyMachineState(anchorWallet, candyMachineId, connection);
 
       setIsSoldOut(itemsRemaining === 0);
       setStartDate(goLiveDate);
       setCandyMachine(candyMachine);
       dispatch(setConnected(wallet.connected));
     })();
-  }, [wallet, props.candyMachineId, props.connection]);
+  }, [wallet, candyMachineId, connection]);
 
   return (
     <main>
-      {wallet.connected && <p>Address: {addressShort}</p>}
+      {/* {wallet.connected && <p>Address: {addressShort}</p>} */}
 
-      {wallet.connected && (
+      {/* {wallet.connected && (
         <p>Balance: {(balance || 0).toLocaleString()} SOL</p>
-      )}
+      )} */}
 
       <MintContainer>
         {!wallet.connected ? (
@@ -247,4 +266,4 @@ const renderCounter = ({ days, hours, minutes, seconds, completed }: any) => {
   );
 };
 
-export default Home;
+export default Mint;
