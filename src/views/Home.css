@@ -5,8 +5,16 @@
   left: 0;
   right: 0;
   overflow: auto;
+}
+
+.light_mode {
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
     url("../assets/images/background2.png") center / cover fixed no-repeat;
+}
+
+.dark_mode {
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url("../assets/images/background.png") center / cover fixed no-repeat;
 }
 
 .font_main {
@@ -21,21 +29,24 @@
 }
 
 .page_content {
+  overflow: scroll;
 }
 
-.app-header {
-  /* height: 40vh; */
-  /* overflow: hidden; */
-}
-
-.app-body {
-  /* min-height: 53vh; */
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: center; */
-  /* font-size: calc(14px + 1.5vmin); */
-}
-
-.app-footer {
-  /* min-height: 7vh; */
+.page_box {
+  background: radial-gradient(
+    circle at left bottom,
+    rgb(193, 122, 171),
+    rgb(77, 96, 185),
+    rgb(80, 235, 188)
+  );
+  border: 2px solid rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px black;
+  /* box-shadow: 0px 0px 20px 5px white; */
+  overflow: hidden;
+  padding: 50px 20px;
+  height: auto;
+  /* width: auto; */
+  /* height: 100%; */
+  /* margin: auto auto; */
 }

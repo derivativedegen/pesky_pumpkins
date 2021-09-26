@@ -4,11 +4,13 @@ import Social from "../Social";
 import Mint from "../Mint";
 import "../Buttons.css";
 import "./style.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   selectAddress,
+  selectColorMode,
   selectCurrentPage,
   selectLoading,
+  setColorMode,
 } from "../../redux/app";
 import { shortenAddress } from "../../candy-machine";
 import { links } from "../../constants/constants";
@@ -17,15 +19,25 @@ import discord from "../../assets/images/discord.svg";
 import { Link } from "react-router-dom";
 
 export default function Navigation(props) {
+  const dispatch = useDispatch();
   const addressFull = useSelector(selectAddress);
   const addressShort = shortenAddress(addressFull);
   const currentPage = useSelector(selectCurrentPage);
   const loading = useSelector(selectLoading);
+  const colorMode = useSelector(selectColorMode);
   const nav = ["mint", "about", "roadmap", "team", "tools", "terms"];
 
   const activePage = (page) => {
     if (currentPage === page) {
       return "nav_button_active";
+    }
+  };
+
+  const toggleColorMode = () => {
+    if (colorMode === "light_mode") {
+      dispatch(setColorMode("dark_mode"));
+    } else if (colorMode === "dark_mode") {
+      dispatch(setColorMode("light_mode"));
     }
   };
 
@@ -49,7 +61,7 @@ export default function Navigation(props) {
         })}
       </div>
 
-      <div className="nav_social d-flex flex-row h-100 pb-5 align-items-end justify-content-around">
+      <div className="nav_social d-flex flex-row h-100 pb-4 align-items-end justify-content-center">
         <a href={links.twitter.url} target="_blank">
           <img className="social_icon" src={twitter} alt="twitter" />
         </a>
@@ -57,6 +69,9 @@ export default function Navigation(props) {
           <img className="social_icon" src={discord} alt="discord" />
         </a>
       </div>
+      <button onClick={() => toggleColorMode()} className="color_mode">
+        {colorMode === "light_mode" ? "Dark Mode" : "Light Mode"}
+      </button>
     </div>
   );
 }

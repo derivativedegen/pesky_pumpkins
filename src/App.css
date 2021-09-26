@@ -17,8 +17,7 @@ Colors:
 
 html {
   height: 100%;
-  overflow: scroll;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 ::-webkit-scrollbar {
   width: 0; /* Remove scrollbar space */
@@ -31,9 +30,9 @@ html {
 
 body {
   min-height: 100%;
-  overflow: auto;
+  overflow: scroll;
   margin: 0;
-  padding: 0px;
+  padding: 0;
   color: white;
   /* background: linear-gradient(0deg, rgba(51, 38, 38, 0.3), rgba(0, 0, 0, 0.6)),
     url("images/background.png") no-repeat center center fixed; */

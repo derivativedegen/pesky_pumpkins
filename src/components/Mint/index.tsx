@@ -32,7 +32,25 @@ import {
 } from "../../redux/app";
 import { useDispatch, useSelector } from "react-redux";
 
-const ConnectButton = styled(WalletDialogButton)``;
+const ConnectButton = styled(WalletDialogButton)`
+  align-items: center;
+  border-color: black;
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px 2px #000000 !important;
+  color: white;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: 700;
+  height: 50px;
+  justify-content: center;
+  margin: 5px;
+  overflow: hidden;
+  padding: 0 50px;
+  transition: border 0.185s ease-out;
+  z-index: 3;
+  background-color: rgb(80, 235, 188);
+  color: black;
+`;
 const CounterText = styled.span``; // add your styles here
 const MintContainer = styled.div``; // add your styles here
 const MintButton = styled(Button)`
@@ -42,14 +60,14 @@ const MintButton = styled(Button)`
   box-shadow: 0px 0px 5px 2px #000000 !important;
   color: white;
   cursor: pointer;
-  font-size: 25px;
+  font-size: 2rem;
   font-weight: 700;
   height: 50px;
   justify-content: center;
   margin: 5px;
-  width: 160px;
+  // width: 160px;
   overflow: hidden;
-  padding: 0 16px;
+  padding: 0 50px;
   position: relative;
   text-indent: 0;
   transition: border 0.185s ease-out;
@@ -218,7 +236,7 @@ const Mint = () => {
           )}
           <MintContainer>
             {!wallet.connected ? (
-              <ConnectButton>Connect Wallet</ConnectButton>
+              <ConnectButton>CONNECT</ConnectButton>
             ) : (
               <MintButton
                 disabled={isSoldOut || loading || !isActive}
