@@ -207,40 +207,53 @@ const Mint = () => {
 
   return (
     <div className="col-12 h-100 d-flex justify-content-center align-items-center">
-      {/* {wallet.connected && <p>Address: {addressShort}</p>} */}
-      {/* {wallet.connected && (
-        <p>Balance: {(balance || 0).toLocaleString()} SOL</p>
-      )} */}
-
       <div className="col-6 mint_box">
-        <MintContainer>
-          {!wallet.connected ? (
-            <ConnectButton>Connect Wallet</ConnectButton>
-          ) : (
-            <MintButton
-              disabled={isSoldOut || loading || !isActive}
-              onClick={onMint}
-              variant="contained"
-            >
-              {isSoldOut ? (
-                "SOLD OUT"
-              ) : isActive ? (
-                loading ? (
-                  <CircularProgress />
-                ) : (
-                  "mint"
-                )
-              ) : (
-                <Countdown
-                  date={startDate}
-                  onMount={({ completed }) => completed && setIsActive(true)}
-                  onComplete={() => setIsActive(true)}
-                  renderer={renderCounter}
-                />
-              )}
-            </MintButton>
+        <div className="minting_stats d-flex flex-row col-12 justify-content-around align-items-center">
+          {wallet.connected && (
+            <p>
+              <span className="stat_header">Address</span>
+              <br />
+              <span className="stat">{addressShort}</span>
+            </p>
           )}
-        </MintContainer>
+          <MintContainer>
+            {!wallet.connected ? (
+              <ConnectButton>Connect Wallet</ConnectButton>
+            ) : (
+              <MintButton
+                disabled={isSoldOut || loading || !isActive}
+                onClick={onMint}
+                variant="contained"
+              >
+                {isSoldOut ? (
+                  "SOLD OUT"
+                ) : isActive ? (
+                  loading ? (
+                    <CircularProgress />
+                  ) : (
+                    "mint"
+                  )
+                ) : (
+                  <Countdown
+                    date={startDate}
+                    onMount={({ completed }) => completed && setIsActive(true)}
+                    onComplete={() => setIsActive(true)}
+                    renderer={renderCounter}
+                  />
+                )}
+              </MintButton>
+            )}
+          </MintContainer>
+          {wallet.connected && (
+            <p>
+              <span className="stat_header">Balance</span>
+              <br />
+              <span className="stat">
+                {(balance || 0).toLocaleString()} SOL
+              </span>
+            </p>
+          )}
+        </div>
       </div>
 
       <Snackbar

@@ -33,6 +33,40 @@
   width: 50px;
 }
 
+.nav_button {
+  border-top: 1px solid white;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  height: 80px;
+  background: transparent;
+  text-transform: uppercase;
+  color: white;
+  font-size: 1.25rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav_button_last {
+  border-bottom: 1px solid white;
+}
+
+.nav_button:hover,
+.nav_button_active {
+  /* background: radial-gradient(
+    circle at right top,
+    rgb(255, 161, 225),
+    rgb(105, 132, 255),
+    rgb(90, 255, 206)
+  ); */
+  /* font-size: 1.5rem; */
+  /* font-weight: 700; */
+  background: rgba(255, 255, 255, 0.5);
+  color: black;
+}
+
 /* @media only screen and (min-width: 576px) {
   .header-box {
     padding: 50px 200px;

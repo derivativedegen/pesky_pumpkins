@@ -16,3 +16,8 @@ code {
   font-family: "MTV";
   src: local("MTV"), url("./assets/fonts/MTV.ttf") format("truetype");
 }
+
+@font-face {
+  font-family: "Rajdhani";
+  src: local("Rajdhani"), url("./assets/fonts/Rajdhani.ttf") format("truetype");
+}

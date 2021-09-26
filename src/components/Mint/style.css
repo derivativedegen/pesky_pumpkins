@@ -13,3 +13,12 @@
   /* height: 100%; */
   /* margin: auto auto; */
 }
+
+.stat_header {
+  font-size: 2rem;
+  border-bottom: 1px solid white;
+}
+
+.stat {
+  font-size: 1.5rem;
+}
