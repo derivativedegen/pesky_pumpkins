@@ -15,7 +15,7 @@ export default function About(props) {
     <div className="about_container col-12 d-flex justify-content-center align-items-center">
       <div className="page_box col-8">
         {/* <h1 style={{ color: "white", fontSize: "3rem" }}>NFTeePee.Club</h1> */}
-        <img style={{ maxHeight: "300px" }} src={logo} alt="" />
+        <img className="img-fluid p-3" src={logo} alt="" />
         <hr
           style={{
             color: "white",

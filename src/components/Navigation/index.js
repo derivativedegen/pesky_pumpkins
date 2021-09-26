@@ -61,7 +61,7 @@ export default function Navigation(props) {
         })}
       </div>
 
-      <div className="nav_social d-flex flex-row h-100 pb-4 align-items-end justify-content-center">
+      <div className="nav_social d-flex flex-row flex-wrap h-100 pb-4 align-items-end justify-content-center">
         <a href={links.twitter.url} target="_blank">
           <img className="social_icon" src={twitter} alt="twitter" />
         </a>
