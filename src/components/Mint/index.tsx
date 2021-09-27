@@ -192,7 +192,7 @@ const Mint = () => {
         <img src={example} alt="nfteepee_example" className="img-fluid" />
       </div>
       <div className="col-6 mint_box">
-        <div className="minting_stats d-flex flex-row col-12 justify-content-around align-items-center">
+        <div className="minting_stats d-flex flex-row col-12 justify-content-around align-items-center h-100">
           {wallet.connected && (
             <p>
               <span className="stat_header">Address</span>
