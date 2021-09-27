@@ -22,3 +22,23 @@
 .stat {
   font-size: 1.5rem;
 }
+
+.MuiButton-containedPrimary,
+.MuiButton-contained {
+  align-items: center !important;
+  border-color: black !important;
+  border-radius: 15px !important;
+  box-shadow: 0px 0px 5px 2px #000000 !important;
+  color: black !important;
+  cursor: pointer !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  height: 50px !important;
+  justify-content: center !important;
+  margin: 5px !important;
+  overflow: hidden !important;
+  padding: 0 50px !important;
+  transition: border 0.185s ease-out !important;
+  z-index: 3 !important;
+  background-color: rgb(80, 235, 188) !important;
+}

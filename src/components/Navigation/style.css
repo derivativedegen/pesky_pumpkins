@@ -54,8 +54,7 @@
   border-bottom: 1px solid white;
 }
 
-.nav_button:hover,
-.nav_button_active {
+.nav_button:hover {
   /* background: radial-gradient(
     circle at right top,
     rgb(255, 161, 225),
@@ -64,6 +63,12 @@
   ); */
   /* font-size: 1.5rem; */
   /* font-weight: 700; */
+  background: rgba(255, 255, 255, 0.5);
+  color: black;
+}
+
+.nav_button_active {
+  box-shadow: 0px 0px 10px -2px rgb(37, 37, 37);
   background: rgba(255, 255, 255, 0.5);
   color: black;
 }
