@@ -2,7 +2,7 @@ import React from "react";
 import "./Home.css";
 import Mint from "../components/Mint";
 import Navigation from "../components/Navigation";
-import { Test } from "./Test.tsx";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -24,8 +24,7 @@ export default function Home(props) {
         </div>
         <div className="page_content col-10">
           <Switch>
-            {/* <Redirect exact from="/" to="/mint" /> */}
-            <Route exact path="/" component={Test} />
+            <Redirect exact from="/" to="/mint" />
             <Route exact path="/mint" component={Mint} />
             <Route path="/about" component={About} />
             {/* <Route path="/raid" component={Raid} /> */}

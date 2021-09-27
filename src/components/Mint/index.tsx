@@ -32,49 +32,12 @@ import {
 } from "../../redux/app";
 import { useDispatch, useSelector } from "react-redux";
 
-const ConnectButton = styled(WalletDialogButton)`
-  align-items: center;
-  border-color: black;
-  border-radius: 15px;
-  box-shadow: 0px 0px 5px 2px #000000 !important;
-  color: white;
-  cursor: pointer;
-  font-size: 2rem;
-  font-weight: 700;
-  height: 50px;
-  justify-content: center;
-  margin: 5px;
-  overflow: hidden;
-  padding: 0 50px;
-  transition: border 0.185s ease-out;
-  z-index: 3;
-  background-color: rgb(80, 235, 188);
-  color: black;
-`;
+import example from "../../assets/images/nfteepee1.png";
+
+const ConnectButton = styled(WalletDialogButton)``;
 const CounterText = styled.span``; // add your styles here
 const MintContainer = styled.div``; // add your styles here
-const MintButton = styled(Button)`
-  align-items: center;
-  border-color: black;
-  border-radius: 15px;
-  box-shadow: 0px 0px 5px 2px #000000 !important;
-  color: white;
-  cursor: pointer;
-  font-size: 2rem;
-  font-weight: 700;
-  height: 50px;
-  justify-content: center;
-  margin: 5px;
-  // width: 160px;
-  overflow: hidden;
-  padding: 0 50px;
-  position: relative;
-  text-indent: 0;
-  transition: border 0.185s ease-out;
-  z-index: 3;
-  background-color: rgb(80, 235, 188);
-  color: black;
-`; // add your styles here
+const MintButton = styled(Button)``; // add your styles here
 
 const treasury = new anchor.web3.PublicKey(
   process.env.REACT_APP_TREASURY_ADDRESS!
@@ -224,7 +187,10 @@ const Mint = () => {
   }, []);
 
   return (
-    <div className="col-12 h-100 d-flex justify-content-center align-items-center">
+    <div className="col-12 h-100 d-flex flex-column justify-content-start mt-5 pt-5 align-items-center">
+      <div className="col-3">
+        <img src={example} alt="nfteepee_example" className="img-fluid" />
+      </div>
       <div className="col-6 mint_box">
         <div className="minting_stats d-flex flex-row col-12 justify-content-around align-items-center">
           {wallet.connected && (
