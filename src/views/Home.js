@@ -22,11 +22,11 @@ export default function Home(props) {
 
   return (
     <Router>
-      <div class={`App d-flex flex-row col-12 h-100 ${colorMode}`}>
-        <div className={`navigation col-2`}>
+      <div class={`App d-flex flex-column col-12 h-100 ${colorMode}`}>
+        <div className="navigation">
           <Navigation />
         </div>
-        <div className="page_content col-10">
+        <div className="page_content col-12">
           <Switch>
             <Redirect exact from="/" to="/mint" />
             <Route exact path="/mint" component={Mint} />

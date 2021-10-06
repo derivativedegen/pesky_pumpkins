@@ -33,6 +33,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 
 import example from "../../assets/images/nfteepee4.png";
+import teepee_gif from "../../assets/images/teepee_gif.gif";
 
 const ConnectButton = styled(WalletDialogButton)``;
 const CounterText = styled.span``; // add your styles here
@@ -189,11 +190,12 @@ const Mint = () => {
   return (
     <div className="col-12 h-100 d-flex flex-column align-items-center">
       <div className="col-3">
-        <img
+        {/* <img
           src={example}
           alt="nfteepee_example"
           className="nfteepee_example"
-        />
+        /> */}
+        <img className="img-fluid teepee_gif" src={teepee_gif} alt="" />
       </div>
       <div className="col-6 mint_box">
         <div className="minting_stats d-flex flex-row col-12 justify-content-around align-items-center h-100">

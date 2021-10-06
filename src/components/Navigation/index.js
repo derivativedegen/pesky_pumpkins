@@ -1,77 +1,94 @@
-import React from "react";
-import logo from "../../assets/images/logo.png";
-import Social from "../Social";
-import Mint from "../Mint";
-import "../Buttons.css";
+import React, { useState } from "react";
+// import { ReactComponent as Menu } from "../../assets/icons/menu.svg";
+// import { ReactComponent as Close } from "../../assets/icons/close.svg";
 import "./style.css";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  selectAddress,
-  selectColorMode,
-  selectCurrentPage,
-  selectLoading,
-  setColorMode,
-} from "../../redux/app";
-import { shortenAddress } from "../../candy-machine";
-import { links } from "../../constants/constants";
-import twitter from "../../assets/images/twitter.svg";
-import discord from "../../assets/images/discord.svg";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+// import { selectAddress, selectConnected } from "../../redux/network";
+import { links } from "../../constants/constants";
+import logo from "../../assets/images/logo.png";
 
-export default function Navigation(props) {
-  const dispatch = useDispatch();
-  const addressFull = useSelector(selectAddress);
-  const addressShort = shortenAddress(addressFull);
-  const currentPage = useSelector(selectCurrentPage);
-  const loading = useSelector(selectLoading);
-  const colorMode = useSelector(selectColorMode);
-  const nav = ["mint", "about", "roadmap", "team", "tools", "terms"];
+const Header = (props) => {
+  const { toggleConnect } = props;
+  //   const connected = useSelector(selectConnected);
+  //   const address = useSelector(selectAddress);
+  //   const address_short = "0x..." + address.slice(-4);
 
-  const activePage = (page) => {
-    if (currentPage === page) {
-      return "nav_button_active";
-    }
-  };
-
-  const toggleColorMode = () => {
-    if (colorMode === "light_mode") {
-      dispatch(setColorMode("dark_mode"));
-    } else if (colorMode === "dark_mode") {
-      dispatch(setColorMode("light_mode"));
-    }
+  const [menu, setMenu] = useState(false);
+  const showMenu = () => {
+    setMenu(!menu);
   };
 
   return (
-    <div className="nav_box d-flex flex-column col-12">
-      <img src={logo} className="img-fluid nav_logo" alt="logo" />
+    <nav className="navbar">
+      <Link to="/" style={{ textDecoration: "none" }}>
+        <img src={logo} className="nav_logo" alt="logo" />
+      </Link>
 
-      <div className="nav_links d-flex flex-column">
-        {nav.map((page, i) => {
-          return (
-            <Link
-              to={`/${page}`}
-              key={i}
-              className={`nav_button ${
-                i === nav.length - 1 && "nav_button_last"
-              } ${activePage(page)}`}
-            >
-              {page}
-            </Link>
-          );
-        })}
+      <div className="nav-links">
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <button className="nav-link">MINT</button>
+        </Link>
+        <Link to="/about" style={{ textDecoration: "none" }}>
+          <button className="nav-link">ABOUT</button>
+        </Link>
+        <Link to="/roadmap" style={{ textDecoration: "none" }}>
+          <button className="nav-link">ROADMAP</button>
+        </Link>
+        <Link to="/tools" style={{ textDecoration: "none" }}>
+          <button className="nav-link">TOOLS</button>
+        </Link>
+        <Link to="/team" style={{ textDecoration: "none" }}>
+          <button className="nav-link">TEAM</button>
+        </Link>
       </div>
 
-      <div className="nav_social d-flex flex-row flex-wrap h-100 pb-4 align-items-end justify-content-center">
-        <a href={links.twitter.url} target="_blank">
-          <img className="social_icon" src={twitter} alt="twitter" />
-        </a>
-        <a href={links.discord.url} target="_blank">
-          <img className="social_icon" src={discord} alt="discord" />
-        </a>
+      {/* <div onClick={showMenu} className="menu-icon">
+        <Menu />
+      </div> */}
+
+      <div className={menu ? "slide-menu active" : "slide-menu"}>
+        {/* <Close onClick={() => setMenu(false)} className="close-icon" /> */}
+        <div className="d-flex flex-column mobile-menu">
+          <Link to="/" onClick={() => setMenu(false)}>
+            MINT
+          </Link>
+          <Link to="/about" onClick={() => setMenu(false)}>
+            ABOUT
+          </Link>
+          <Link to="/roadmap" onClick={() => setMenu(false)}>
+            ROADMAP
+          </Link>
+          <Link to="/tools" onClick={() => setMenu(false)}>
+            TOOLS
+          </Link>
+          <Link to="/team" onClick={() => setMenu(false)}>
+            TEAM
+          </Link>
+          <a href={links.twitter.url} target="_blank">
+            Twitter
+          </a>
+          <a href={links.discord.url} target="_blank">
+            Discord
+          </a>
+          {/* <a href={links.contract.url} target="_blank">
+            Contract
+          </a> */}
+          <Link to="/terms" onClick={() => setMenu(false)}>
+            TERMS
+          </Link>
+        </div>
+        <div className="col-12 d-flex justify-content-center mt-3">
+          {/* <button
+            className={`btn_button ${connected ? "btn_connected" : "btn_main"}`}
+            onClick={toggleConnect}
+          >
+            {connected ? address_short : "Connect"}
+          </button> */}
+        </div>
       </div>
-      <button onClick={() => toggleColorMode()} className="color_mode">
-        {colorMode === "light_mode" ? "Dark Mode" : "Light Mode"}
-      </button>
-    </div>
+    </nav>
   );
-}
+};
+
+export default Header;

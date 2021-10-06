@@ -8,11 +8,6 @@
   padding: "0px 40px";
 }
 
-.teepee_gif {
-  height: 200px;
-  width: auto;
-  border: 1px solid white;
-  border-radius: 15px;
-  box-shadow: 0px 0px 20px black;
-  margin-bottom: 20px;
+.nfteepee_example {
+  height: 300px;
 }

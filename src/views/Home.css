@@ -26,11 +26,12 @@
 }
 
 .navigation {
+  height: 10%;
+  /* overflow: hidden; */
 }
 
 .page_content {
-  overflow: auto;
-  padding-top: 10%;
+  padding-top: 5%;
 }
 
 .page_box {

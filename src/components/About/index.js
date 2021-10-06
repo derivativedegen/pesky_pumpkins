@@ -4,6 +4,7 @@ import { setCurrentPage } from "../../redux/app";
 import logo from "../../assets/images/logo.png";
 import teepee_gif from "../../assets/images/teepee_gif.gif";
 import "./style.css";
+import example from "../../assets/images/nfteepee4.png";
 
 export default function About(props) {
   const dispatch = useDispatch();
@@ -35,7 +36,12 @@ export default function About(props) {
           black market or on your Amerzon-Prime membership.
         </p>
 
-        <img className="img-fluid teepee_gif" src={teepee_gif} alt="" />
+        {/* <img className="img-fluid teepee_gif" src={teepee_gif} alt="" /> */}
+        <img
+          src={example}
+          alt="nfteepee_example"
+          className="nfteepee_example"
+        />
 
         <p className="about_text">
           Owning one of these 7777 TP rolls will have iconic value that relates
