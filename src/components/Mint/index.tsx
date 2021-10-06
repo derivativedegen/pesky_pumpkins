@@ -187,7 +187,7 @@ const Mint = () => {
 
   return (
     <div className="col-12 h-100 d-flex flex-column align-items-center">
-      <div className="col-12 col-md-3">
+      <div className="col-7 col-md-5 col-lg-2">
         {/* <img
           src={example}
           alt="nfteepee_example"
@@ -195,7 +195,7 @@ const Mint = () => {
         /> */}
         <img className="img-fluid teepee_gif" src={teepee_gif} alt="" />
       </div>
-      <div className="col-12 col-md-6 mint_box">
+      <div className="col-12 col-md-10 col-lg-6 mint_box">
         <div className="minting_stats d-flex flex-row col-12 justify-content-around align-items-center h-100">
           {wallet.connected && (
             <p>

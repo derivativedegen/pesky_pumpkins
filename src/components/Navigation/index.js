@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-// import { ReactComponent as Menu } from "../../assets/icons/menu.svg";
-// import { ReactComponent as Close } from "../../assets/icons/close.svg";
+import { ReactComponent as Menu } from "../../assets/icons/menu.svg";
+import { ReactComponent as Close } from "../../assets/icons/close.svg";
 import "./style.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -30,11 +30,13 @@ const Header = (props) => {
 
   return (
     <nav className="navbar">
-      <Link to="/" style={{ textDecoration: "none" }}>
-        <img src={logo} className="nav_logo" alt="logo" />
-      </Link>
+      <div className="col-2 logo_container">
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <img src={logo} className="nav_logo" alt="logo" />
+        </Link>
+      </div>
 
-      <div className="social-links">
+      <div className="col-3 social-links">
         <a href={links.twitter.url} target="_blank">
           <img className="social_icon" src={twitter} alt="twitter" />
         </a>
@@ -43,7 +45,7 @@ const Header = (props) => {
         </a>
       </div>
 
-      <div className="nav-links">
+      <div className="col-7 nav-links">
         <Link to="/" className={`nav-link ${activePage("mint")}`}>
           MINT
         </Link>
@@ -61,13 +63,17 @@ const Header = (props) => {
         </Link>
       </div>
 
-      {/* <div onClick={showMenu} className="menu-icon">
+      <div onClick={showMenu} className="menu-icon">
         <Menu />
-      </div> */}
+      </div>
 
-      <div className={menu ? "slide-menu active" : "slide-menu"}>
-        {/* <Close onClick={() => setMenu(false)} className="close-icon" /> */}
-        <div className="d-flex flex-column mobile-menu">
+      <div
+        className={`${
+          menu ? "slide-menu active" : "slide-menu"
+        } d-flex justify-content-between`}
+      >
+        <Close onClick={() => setMenu(false)} className="close-icon" />
+        <div className="mobile-menu">
           <Link to="/" onClick={() => setMenu(false)}>
             MINT
           </Link>
@@ -83,26 +89,20 @@ const Header = (props) => {
           <Link to="/team" onClick={() => setMenu(false)}>
             TEAM
           </Link>
-          <a href={links.twitter.url} target="_blank">
-            Twitter
-          </a>
-          <a href={links.discord.url} target="_blank">
-            Discord
-          </a>
           {/* <a href={links.contract.url} target="_blank">
             Contract
           </a> */}
-          <Link to="/terms" onClick={() => setMenu(false)}>
+          {/* <Link to="/terms" onClick={() => setMenu(false)}>
             TERMS
-          </Link>
+          </Link> */}
         </div>
-        <div className="col-12 d-flex justify-content-center mt-3">
-          {/* <button
-            className={`btn_button ${connected ? "btn_connected" : "btn_main"}`}
-            onClick={toggleConnect}
-          >
-            {connected ? address_short : "Connect"}
-          </button> */}
+        <div className="col-12 d-flex justify-content-center align-items-center pb-5">
+          <a href={links.twitter.url} target="_blank">
+            <img className="social_icon" src={twitter} alt="twitter" />
+          </a>
+          <a href={links.discord.url} target="_blank">
+            <img className="social_icon" src={discord} alt="discord" />
+          </a>
         </div>
       </div>
     </nav>

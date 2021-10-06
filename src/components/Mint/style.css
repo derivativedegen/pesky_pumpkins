@@ -45,7 +45,7 @@
 }
 
 .teepee_gif {
-  height: 350px;
+  /* height: 350px; */
   width: auto;
   border: 2px solid black;
   border-radius: 15px;

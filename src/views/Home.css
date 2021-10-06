@@ -26,13 +26,13 @@
 }
 
 .navigation {
-  height: 10%;
+  /* height: 10%; */
   /* overflow: hidden; */
 }
 
 .page_content {
-  padding-top: 5%;
-  padding-bottom: 100px;
+  margin-top: 5%;
+  padding-bottom: 10%;
 }
 
 .page_box {

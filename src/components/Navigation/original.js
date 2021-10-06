@@ -42,10 +42,10 @@ export default function Navigation(props) {
   };
 
   return (
-    <div className="nav_box d-flex flex-row col-12 justify-content-between">
+    <div className="nav_box d-flex flex-column col-12 justify-content-between">
       <img src={logo} className="img-fluid nav_logo" alt="logo" />
 
-      <div className="nav_links d-flex flex-row">
+      <div className="nav_links d-flex flex-column">
         {nav.map((page, i) => {
           return (
             <Link

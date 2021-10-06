@@ -1,10 +1,10 @@
 .navbar {
   width: 100%;
   color: #cc66ff;
-  display: flex;
-  flex-direction: row;
+  /* display: flex; */
+  /* flex-direction: row; */
   padding: 0px 0px 0px 20px;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   background: radial-gradient(
     circle at left bottom,
@@ -23,9 +23,23 @@
   width: auto;
 }
 
+.logo_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .nav-links {
   display: flex;
   flex-direction: row;
+  justify-content: end;
 }
 
 .nav-link {
@@ -37,7 +51,7 @@
   text-transform: uppercase;
   color: white;
   font-size: 1.35rem;
-  width: 250px;
+  min-width: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,8 +90,13 @@
   width: 250px;
   height: 100vh;
   transition: all 0.4s;
-  background: linear-gradient(0.35turn, rgb(22, 28, 70), rgb(48, 24, 59));
-  border-right: 1px solid white;
+  background: radial-gradient(
+    circle at left bottom,
+    rgb(193, 122, 171),
+    rgb(77, 96, 185),
+    rgb(80, 235, 188)
+  );
+  border-right: 2px solid black;
   top: 0;
 }
 .slide-menu.active {
@@ -85,11 +104,14 @@
   left: 0;
 }
 .menu-icon {
-  fill: white;
+  fill: black;
   display: none;
 }
+.menu-icon:hover {
+  cursor: pointer;
+}
 .close-icon {
-  fill: white;
+  fill: black;
   width: 30px;
   height: 30px;
   position: absolute;
@@ -103,17 +125,22 @@
   .nav-links {
     display: none;
   }
+  .social-links {
+    display: none;
+  }
   .menu-icon {
     display: block;
+    padding-right: 30px;
   }
   .mobile-menu {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding-top: 15px;
   }
   .mobile-menu a {
     margin: 1vh 1.5vw;
-    color: #cc66ff;
+    color: white;
     text-decoration: none;
     font-size: 30px;
   }
