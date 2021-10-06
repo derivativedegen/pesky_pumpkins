@@ -12,7 +12,7 @@ export default function Terms(props) {
 
   return (
     <div className="terms_container col-12 d-flex justify-content-center">
-      <div className="page_box col-8">
+      <div className="page_box terms_text col-8">
         <h1 style={{ color: "white", fontSize: "3rem" }}>Terms & Conditions</h1>
         <p style={{ color: "white", fontSize: "1.25rem", padding: "0px 40px" }}>
           NFTeePeeClub is a collection of digital artworks (NFTs) running on the
@@ -36,7 +36,7 @@ export default function Terms(props) {
           }}
         />
         <h1 style={{ color: "white", fontSize: "3rem" }}>Ownership</h1>
-        <p style={{ color: "white", fontSize: "1.25rem", padding: "0px 30px" }}>
+        <p style={{ color: "white", fontSize: "1.25rem", padding: "0px 40px" }}>
           i. You Own the NFT. Each NFTeePee is an NFT on the Ethereum
           blockchain. When you purchase an NFT, you own the underlying NFTeePee,
           the Art, completely. Ownership of the NFT is mediated entirely by the
@@ -44,7 +44,7 @@ export default function Terms(props) {
           freeze, or otherwise modify the ownership of any NFTeePee.
         </p>
 
-        <p style={{ color: "white", fontSize: "1.25rem", padding: "0px 30px" }}>
+        <p style={{ color: "white", fontSize: "1.25rem", padding: "0px 40px" }}>
           ii. Personal Use. Subject to your continued compliance with these
           Terms, the NFTeePeeClub DAO grants you a worldwide, royalty-free
           license to use, copy, and display the purchased Art, along with any
@@ -62,7 +62,7 @@ export default function Terms(props) {
           is no longer visible once the owner of the NFTeePee leaves the
           website/application.
         </p>
-        <p style={{ color: "white", fontSize: "1.25rem", padding: "0px 30px" }}>
+        <p style={{ color: "white", fontSize: "1.25rem", padding: "0px 40px" }}>
           iii. Commercial Use. Subject to your continued compliance with these
           Terms, the NFTeePeeClub DAO grants you an unlimited, worldwide license
           to use, copy, and display the purchased Art for the purpose of

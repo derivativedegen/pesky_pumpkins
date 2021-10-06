@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Home.css";
 import Mint from "../components/Mint";
 import Navigation from "../components/Navigation";
@@ -23,7 +23,7 @@ export default function Home(props) {
   return (
     <Router>
       <div class={`App d-flex flex-row col-12 h-100 ${colorMode}`}>
-        <div className="navigation col-2">
+        <div className={`navigation col-2`}>
           <Navigation />
         </div>
         <div className="page_content col-10">
