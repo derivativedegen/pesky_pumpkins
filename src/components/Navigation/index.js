@@ -7,12 +7,21 @@ import { useSelector } from "react-redux";
 // import { selectAddress, selectConnected } from "../../redux/network";
 import { links } from "../../constants/constants";
 import logo from "../../assets/images/logo.png";
+import { selectCurrentPage } from "../../redux/app";
+import twitter from "../../assets/images/twitter.svg";
+import discord from "../../assets/images/discord.svg";
 
 const Header = (props) => {
-  const { toggleConnect } = props;
   //   const connected = useSelector(selectConnected);
   //   const address = useSelector(selectAddress);
   //   const address_short = "0x..." + address.slice(-4);
+  const currentPage = useSelector(selectCurrentPage);
+
+  const activePage = (page) => {
+    if (currentPage === page) {
+      return "nav-link-active";
+    }
+  };
 
   const [menu, setMenu] = useState(false);
   const showMenu = () => {
@@ -25,21 +34,30 @@ const Header = (props) => {
         <img src={logo} className="nav_logo" alt="logo" />
       </Link>
 
+      <div className="social-links">
+        <a href={links.twitter.url} target="_blank">
+          <img className="social_icon" src={twitter} alt="twitter" />
+        </a>
+        <a href={links.discord.url} target="_blank">
+          <img className="social_icon" src={discord} alt="discord" />
+        </a>
+      </div>
+
       <div className="nav-links">
-        <Link to="/" style={{ textDecoration: "none" }}>
-          <button className="nav-link">MINT</button>
+        <Link to="/" className={`nav-link ${activePage("mint")}`}>
+          MINT
         </Link>
-        <Link to="/about" style={{ textDecoration: "none" }}>
-          <button className="nav-link">ABOUT</button>
+        <Link to="/about" className={`nav-link ${activePage("about")}`}>
+          ABOUT
         </Link>
-        <Link to="/roadmap" style={{ textDecoration: "none" }}>
-          <button className="nav-link">ROADMAP</button>
+        <Link to="/roadmap" className={`nav-link ${activePage("roadmap")}`}>
+          ROADMAP
         </Link>
-        <Link to="/tools" style={{ textDecoration: "none" }}>
-          <button className="nav-link">TOOLS</button>
+        <Link to="/tools" className={`nav-link ${activePage("tools")}`}>
+          TOOLS
         </Link>
-        <Link to="/team" style={{ textDecoration: "none" }}>
-          <button className="nav-link">TEAM</button>
+        <Link to="/team" className={`nav-link ${activePage("team")}`}>
+          TEAM
         </Link>
       </div>
 
