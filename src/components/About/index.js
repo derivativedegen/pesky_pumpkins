@@ -12,7 +12,7 @@ export default function About(props) {
   }, []);
 
   return (
-    <div className="about_container col-12 d-flex justify-content-center align-items-center">
+    <div className="about_container col-12 d-flex justify-content-center">
       <div className="page_box col-8">
         <div className="col-12 col-md-8 offset-md-2">
           <img className="img-fluid p-3" src={logo} alt="" />

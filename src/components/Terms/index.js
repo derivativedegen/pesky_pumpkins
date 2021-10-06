@@ -11,7 +11,7 @@ export default function Terms(props) {
   }, []);
 
   return (
-    <div className="terms_container col-12 d-flex justify-content-center align-items-center">
+    <div className="terms_container col-12 d-flex justify-content-center align-items-start">
       <div className="page_box col-8">
         <h1 style={{ color: "white", fontSize: "3rem" }}>Terms & Conditions</h1>
         <p style={{ color: "white", fontSize: "1.25rem", padding: "0px 40px" }}>
@@ -37,8 +37,52 @@ export default function Terms(props) {
         />
         <h1 style={{ color: "white", fontSize: "3rem" }}>Ownership</h1>
         <p style={{ color: "white", fontSize: "1.25rem", padding: "0px 30px" }}>
-          Ownership details will be provided in the near future, prior to
-          launch.
+          i. You Own the NFT. Each NFTeePee is an NFT on the Ethereum
+          blockchain. When you purchase an NFT, you own the underlying NFTeePee,
+          the Art, completely. Ownership of the NFT is mediated entirely by the
+          Smart Contract and the Ethereum Network: at no point may we seize,
+          freeze, or otherwise modify the ownership of any NFTeePee.
+        </p>
+
+        <p style={{ color: "white", fontSize: "1.25rem", padding: "0px 30px" }}>
+          ii. Personal Use. Subject to your continued compliance with these
+          Terms, the NFTeePeeClub DAO grants you a worldwide, royalty-free
+          license to use, copy, and display the purchased Art, along with any
+          extensions that you choose to create or use, solely forthe following
+          purposes: (i) for your own personal, non-commercial use; (ii) as part
+          of a marketplace that permits the purchase and sale of your NFTeePee /
+          NFT, provided that the marketplace cryptographically verifies each
+          NFTeePee owner’s rights to display the Art for their NFTeePee to
+          ensure that only the actual owner can display the Art; or (iii) as
+          part of a third party website or application that permits the
+          inclusion, involvement, or participation of your NFTeePee, provided
+          that the website/application cryptographically verifies each NFTeePee
+          owner’s rights to display the Art for their NFTeePee to ensure that
+          only the actual owner can display the Art, and provided that the Art
+          is no longer visible once the owner of the NFTeePee leaves the
+          website/application.
+        </p>
+        <p style={{ color: "white", fontSize: "1.25rem", padding: "0px 30px" }}>
+          iii. Commercial Use. Subject to your continued compliance with these
+          Terms, the NFTeePeeClub DAO grants you an unlimited, worldwide license
+          to use, copy, and display the purchased Art for the purpose of
+          creating derivative works based upon the Art (“Commercial Use”).
+          Examples of such Commercial Use would e.g. be the use of the Art to
+          produce and sell merchandise products (T-Shirts etc.) displaying
+          copies of the Art. For the sake of clarity, nothing in this Section
+          will be deemed to restrict you from (i) owning or operating a
+          marketplace that permits the use and sale of NFTeePeeClub generally,
+          provided that the marketplace cryptographically verifies each NFTeePee
+          owner’s rights to display the Art for their NFTeePee to ensure that
+          only the actual owner can display the Art; (ii) owning or operating a
+          third party website or application that permits the inclusion,
+          involvement, or participation of NFTeePeeClub generally, provided that
+          the third party website or application cryptographically verifies each
+          NFTeePee owner’s rights to display the Art for their NFTeePee to
+          ensure that only the actual owner can display the Art, and provided
+          that the Art is no longer visible once the owner of the Purchased
+          NFTeePee leaves the website/application; or (iii) earning revenue from
+          any of the foregoing.
         </p>
       </div>
     </div>

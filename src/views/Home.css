@@ -29,7 +29,8 @@
 }
 
 .page_content {
-  overflow: scroll;
+  overflow: auto;
+  padding-top: 10%;
 }
 
 .page_box {
