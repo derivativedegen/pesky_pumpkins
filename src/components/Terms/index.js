@@ -11,7 +11,7 @@ export default function Terms(props) {
   }, []);
 
   return (
-    <div className="terms_container col-12 d-flex justify-content-center align-items-start">
+    <div className="terms_container col-12 d-flex justify-content-center">
       <div className="page_box col-8">
         <h1 style={{ color: "white", fontSize: "3rem" }}>Terms & Conditions</h1>
         <p style={{ color: "white", fontSize: "1.25rem", padding: "0px 40px" }}>

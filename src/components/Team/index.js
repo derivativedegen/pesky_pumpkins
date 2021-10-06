@@ -11,7 +11,7 @@ export default function Team(props) {
   }, []);
 
   return (
-    <div className="team_container col-12 d-flex justify-content-center align-items-center">
+    <div className="team_container col-12 d-flex justify-content-center">
       <div className="page_box col-8">
         <h1 style={{ color: "white", fontSize: "3rem" }}>Team</h1>
       </div>

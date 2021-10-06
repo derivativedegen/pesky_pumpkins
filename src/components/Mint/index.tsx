@@ -187,7 +187,7 @@ const Mint = () => {
   }, []);
 
   return (
-    <div className="col-12 h-100 d-flex flex-column justify-content-start mt-5 pt-5 align-items-center">
+    <div className="col-12 h-100 d-flex flex-column align-items-center">
       <div className="col-3">
         <img src={example} alt="nfteepee_example" className="img-fluid" />
       </div>
