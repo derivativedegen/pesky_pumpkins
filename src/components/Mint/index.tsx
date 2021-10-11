@@ -76,67 +76,67 @@ const Mint = () => {
 
   // Mint Function
   const onMint = async () => {
-    alert("not functional");
-    // try {
-    //   dispatch(setLoading(true));
-    //   if (wallet.connected && candyMachine?.program && wallet.publicKey) {
-    //     const mintTxId = await mintOneToken(
-    //       candyMachine,
-    //       config,
-    //       wallet.publicKey,
-    //       treasury
-    //     );
-    //     const status = await awaitTransactionSignatureConfirmation(
-    //       mintTxId,
-    //       txTimeout,
-    //       connection,
-    //       "singleGossip",
-    //       false
-    //     );
-    //     if (!status?.err) {
-    //       setAlertState({
-    //         open: true,
-    //         message: "Congratulations! Mint succeeded!",
-    //         severity: "success",
-    //       });
-    //     } else {
-    //       setAlertState({
-    //         open: true,
-    //         message: "Mint failed! Please try again!",
-    //         severity: "error",
-    //       });
-    //     }
-    //   }
-    // } catch (error: any) {
-    //   // TODO: blech:
-    //   let message = error.msg || "Minting failed! Please try again!";
-    //   if (!error.msg) {
-    //     if (error.message.indexOf("0x138")) {
-    //     } else if (error.message.indexOf("0x137")) {
-    //       message = `SOLD OUT!`;
-    //     } else if (error.message.indexOf("0x135")) {
-    //       message = `Insufficient funds to mint. Please fund your wallet.`;
-    //     }
-    //   } else {
-    //     if (error.code === 311) {
-    //       message = `SOLD OUT!`;
-    //       setIsSoldOut(true);
-    //     } else if (error.code === 312) {
-    //       message = `Minting period hasn't started yet.`;
-    //     }
-    //   }
-    //   setAlertState({
-    //     open: true,
-    //     message,
-    //     severity: "error",
-    //   });
-    // } finally {
-    //   if (wallet?.publicKey) {
-    //     const balance = await connection.getBalance(wallet?.publicKey);
-    //     setBalance(balance / LAMPORTS_PER_SOL);
-    //   }
-    //   dispatch(setLoading(false));
-    // }
+    // alert("not functional");
+    try {
+      dispatch(setLoading(true));
+      if (wallet.connected && candyMachine?.program && wallet.publicKey) {
+        const mintTxId = await mintOneToken(
+          candyMachine,
+          config,
+          wallet.publicKey,
+          treasury
+        );
+        const status = await awaitTransactionSignatureConfirmation(
+          mintTxId,
+          txTimeout,
+          connection,
+          "singleGossip",
+          false
+        );
+        if (!status?.err) {
+          setAlertState({
+            open: true,
+            message: "Congratulations! Mint succeeded!",
+            severity: "success",
+          });
+        } else {
+          setAlertState({
+            open: true,
+            message: "Mint failed! Please try again!",
+            severity: "error",
+          });
+        }
+      }
+    } catch (error: any) {
+      // TODO: blech:
+      let message = error.msg || "Minting failed! Please try again!";
+      if (!error.msg) {
+        if (error.message.indexOf("0x138")) {
+        } else if (error.message.indexOf("0x137")) {
+          message = `SOLD OUT!`;
+        } else if (error.message.indexOf("0x135")) {
+          message = `Insufficient funds to mint. Please fund your wallet.`;
+        }
+      } else {
+        if (error.code === 311) {
+          message = `SOLD OUT!`;
+          setIsSoldOut(true);
+        } else if (error.code === 312) {
+          message = `Minting period hasn't started yet.`;
+        }
+      }
+      setAlertState({
+        open: true,
+        message,
+        severity: "error",
+      });
+    } finally {
+      if (wallet?.publicKey) {
+        const balance = await connection.getBalance(wallet?.publicKey);
+        setBalance(balance / LAMPORTS_PER_SOL);
+      }
+      dispatch(setLoading(false));
+    }
   };
 
   // Set Address & Balance
