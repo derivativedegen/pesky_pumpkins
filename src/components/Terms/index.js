@@ -13,7 +13,7 @@ export default function Terms(props) {
   return (
     <div className="terms_container col-12 d-flex justify-content-center">
       <div className="page_box terms_text col-12 col-lg-8">
-        <h1 style={{ color: "white", fontSize: "3rem" }}>Terms & Conditions</h1>
+        <h1 className="terms_heading">Terms & Conditions</h1>
         <p className="terms_paragraph">
           NFTeePeeClub is a collection of digital artworks (NFTs) running on the
           Solana network. This website is only an interface allowing
@@ -35,7 +35,7 @@ export default function Terms(props) {
             justifySelf: "center",
           }}
         />
-        <h1 style={{ color: "white", fontSize: "3rem" }}>Ownership</h1>
+        <h1 className="terms_heading">Ownership</h1>
         <p className="terms_paragraph">
           i. You Own the NFT. Each NFTeePee is an NFT on the Solana blockchain.
           When you purchase an NFT, you own the underlying NFTeePee, the Art,

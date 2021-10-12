@@ -3,7 +3,6 @@ import sabotage from "../assets/images/team_member/sabotage.png";
 import david from "../assets/images/team_member/david.png";
 import member1 from "../assets/images/team_member/member1.png";
 import member2 from "../assets/images/team_member/member2.png";
-import member3 from "../assets/images/team_member/member3.jpg";
 
 export const contributors = [
   {

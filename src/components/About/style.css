@@ -8,13 +8,23 @@
   padding: 0px 150px;
 }
 
+.about_heading {
+  color: white;
+  font-size: 3rem;
+}
+
 .nfteepee_example {
   height: 300px;
 }
 
 @media screen and (max-width: 1250px) {
   .about_text {
-    font-size: 1.15rem;
+    font-size: 1rem;
     padding: 0px 15px;
+  }
+
+  .about_heading {
+    color: white;
+    font-size: 2rem;
   }
 }

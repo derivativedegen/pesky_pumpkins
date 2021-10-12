@@ -1,9 +1,14 @@
 .terms_container {
-  height: 80%;
+  height: 100%;
 }
 
 .terms_text {
   overflow: scroll;
+}
+
+.terms_heading {
+  color: white;
+  font-size: 3rem;
 }
 
 .terms_paragraph {
@@ -15,5 +20,10 @@
 @media screen and (max-width: 1250px) {
   .terms_paragraph {
     padding: 0px 0px !important;
+    font-size: 1rem;
+  }
+
+  .terms_heading {
+    font-size: 2rem !important;
   }
 }

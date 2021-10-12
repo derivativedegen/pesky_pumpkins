@@ -20,9 +20,7 @@ export default function About(props) {
         {/* <div className="col-12 col-md-8 offset-md-2">
           <img className="img-fluid p-3" src={logo} alt="" />
         </div> */}
-        <h1 style={{ color: "white", fontSize: "3rem" }}>
-          WIPE YOUR WAY TO WINNINGS
-        </h1>
+        <h1 className="about_heading">WIPE YOUR WAY TO WINNINGS</h1>
         <hr
           style={{
             color: "white",
