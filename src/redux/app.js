@@ -8,6 +8,7 @@ const initialState = {
   loading: false,
   currentPage: "mint",
   colorMode: "light_mode",
+  remaining: "Loading...",
 };
 
 // Slice
@@ -33,6 +34,9 @@ const app = createSlice({
     setColorMode: (state, action) => {
       state.colorMode = action.payload;
     },
+    setRemaining: (state, action) => {
+      state.remaining = action.payload;
+    },
   },
 });
 
@@ -44,6 +48,7 @@ export const {
   setLoading,
   setCurrentPage,
   setColorMode,
+  setRemaining,
 } = app.actions;
 
 // Selectors
@@ -53,6 +58,7 @@ export const selectConnected = (state) => state.app.connected;
 export const selectLoading = (state) => state.app.loading;
 export const selectCurrentPage = (state) => state.app.currentPage;
 export const selectColorMode = (state) => state.app.colorMode;
+export const selectRemaining = (state) => state.app.remaining;
 
 // Reducer
 export default app.reducer;

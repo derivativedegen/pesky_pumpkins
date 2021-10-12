@@ -12,9 +12,9 @@ export default function Terms(props) {
 
   return (
     <div className="terms_container col-12 d-flex justify-content-center">
-      <div className="page_box terms_text col-8">
-        <h1 style={{ color: "white", fontSize: "3rem" }}>Terms & Conditions</h1>
-        <p style={{ color: "white", fontSize: "1.25rem", padding: "0px 40px" }}>
+      <div className="page_box terms_text col-12 col-lg-8">
+        <h1 className="terms_heading">Terms & Conditions</h1>
+        <p className="terms_paragraph">
           NFTeePeeClub is a collection of digital artworks (NFTs) running on the
           Solana network. This website is only an interface allowing
           participants to exchange digital collectibles. Users are entirely
@@ -35,16 +35,16 @@ export default function Terms(props) {
             justifySelf: "center",
           }}
         />
-        <h1 style={{ color: "white", fontSize: "3rem" }}>Ownership</h1>
-        <p style={{ color: "white", fontSize: "1.25rem", padding: "0px 40px" }}>
-          i. You Own the NFT. Each NFTeePee is an NFT on the Ethereum
-          blockchain. When you purchase an NFT, you own the underlying NFTeePee,
-          the Art, completely. Ownership of the NFT is mediated entirely by the
-          Smart Contract and the Ethereum Network: at no point may we seize,
-          freeze, or otherwise modify the ownership of any NFTeePee.
+        <h1 className="terms_heading">Ownership</h1>
+        <p className="terms_paragraph">
+          i. You Own the NFT. Each NFTeePee is an NFT on the Solana blockchain.
+          When you purchase an NFT, you own the underlying NFTeePee, the Art,
+          completely. Ownership of the NFT is mediated entirely by the Smart
+          Contract and the Solana Network: at no point may we seize, freeze, or
+          otherwise modify the ownership of any NFTeePee.
         </p>
 
-        <p style={{ color: "white", fontSize: "1.25rem", padding: "0px 40px" }}>
+        <p className="terms_paragraph">
           ii. Personal Use. Subject to your continued compliance with these
           Terms, the NFTeePeeClub DAO grants you a worldwide, royalty-free
           license to use, copy, and display the purchased Art, along with any
@@ -62,7 +62,7 @@ export default function Terms(props) {
           is no longer visible once the owner of the NFTeePee leaves the
           website/application.
         </p>
-        <p style={{ color: "white", fontSize: "1.25rem", padding: "0px 40px" }}>
+        <p className="terms_paragraph">
           iii. Commercial Use. Subject to your continued compliance with these
           Terms, the NFTeePeeClub DAO grants you an unlimited, worldwide license
           to use, copy, and display the purchased Art for the purpose of

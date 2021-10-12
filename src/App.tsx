@@ -1,7 +1,6 @@
 import "./App.css";
 import { useMemo } from "react";
 
-import Mint from "./components/Mint";
 import Home from "./views/Home";
 
 import { clusterApiUrl } from "@solana/web3.js";
@@ -11,7 +10,6 @@ import {
   getPhantomWallet,
   getSolflareWallet,
   getSolletWallet,
-  getLedgerWallet,
 } from "@solana/wallet-adapter-wallets";
 
 import {
@@ -27,12 +25,7 @@ const App = () => {
   const endpoint = useMemo(() => clusterApiUrl(network), []);
 
   const wallets = useMemo(
-    () => [
-      getPhantomWallet(),
-      getSolflareWallet(),
-      getSolletWallet(),
-      getLedgerWallet(),
-    ],
+    () => [getPhantomWallet(), getSolflareWallet(), getSolletWallet()],
     []
   );
 

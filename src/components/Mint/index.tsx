@@ -29,10 +29,13 @@ import {
   setLoading,
   selectLoading,
   setCurrentPage,
+  setRemaining,
+  selectRemaining,
 } from "../../redux/app";
 import { useDispatch, useSelector } from "react-redux";
 
 import example from "../../assets/images/nfteepee4.png";
+import teepee_gif from "../../assets/images/teepee_gif.gif";
 
 const ConnectButton = styled(WalletDialogButton)``;
 const CounterText = styled.span``; // add your styles here
@@ -53,14 +56,21 @@ const connection = new anchor.web3.Connection(rpcHost);
 const startDateSeed = parseInt(process.env.REACT_APP_CANDY_START_DATE!, 10);
 const txTimeout = 30000; // milliseconds (confirm this works for your project)
 
+const utc = 1634086800000;
+const launchDate = new Date(utc);
+console.log({ launchDate });
+
 const Mint = () => {
-  const [isActive, setIsActive] = useState(false); // true when countdown completes
+  const [isActive, setIsActive] = useState(true); // true when countdown completes
   const [isSoldOut, setIsSoldOut] = useState(false); // true when items remaining is zero
+  const [minted, setMinted] = useState(0);
   const dispatch = useDispatch();
   const balance = useSelector(selectBalance);
   const loading = useSelector(selectLoading);
   const addressFull = useSelector(selectAddress);
   const addressShort = shortenAddress(addressFull);
+  const localString = addressFull + "-teepee";
+  const itemsLeft = useSelector(selectRemaining);
 
   const [alertState, setAlertState] = useState<AlertState>({
     open: false,
@@ -73,71 +83,103 @@ const Mint = () => {
   const wallet = useWallet();
   const [candyMachine, setCandyMachine] = useState<CandyMachine>();
 
+  useEffect(() => {
+    const minted = localStorage.getItem(localString);
+    if (!minted) {
+      // localStorage.setItem(localString, "0");
+      console.log("none minted");
+      setMinted(0);
+    } else {
+      setMinted(Number(minted));
+    }
+  }, [addressFull]);
+
   // Mint Function
   const onMint = async () => {
-    try {
-      dispatch(setLoading(true));
-      if (wallet.connected && candyMachine?.program && wallet.publicKey) {
-        const mintTxId = await mintOneToken(
-          candyMachine,
-          config,
-          wallet.publicKey,
-          treasury
-        );
+    alert("TeePees hasn't launched yet!");
+    // if (minted >= 10) {
+    //   alert("You can only mint 10 TeePees per Address");
+    //   return;
+    // }
 
-        const status = await awaitTransactionSignatureConfirmation(
-          mintTxId,
-          txTimeout,
-          connection,
-          "singleGossip",
-          false
-        );
+    // try {
+    //   dispatch(setLoading(true));
+    //   if (wallet.connected && candyMachine?.program && wallet.publicKey) {
+    //     const mintTxId = await mintOneToken(
+    //       candyMachine,
+    //       config,
+    //       wallet.publicKey,
+    //       treasury
+    //     );
+    //     const status = await awaitTransactionSignatureConfirmation(
+    //       mintTxId,
+    //       txTimeout,
+    //       connection,
+    //       "singleGossip",
+    //       false
+    //     );
+    //     if (!status?.err) {
+    //       setAlertState({
+    //         open: true,
+    //         message: "Congratulations! Mint succeeded!",
+    //         severity: "success",
+    //       });
 
-        if (!status?.err) {
-          setAlertState({
-            open: true,
-            message: "Congratulations! Mint succeeded!",
-            severity: "success",
-          });
-        } else {
-          setAlertState({
-            open: true,
-            message: "Mint failed! Please try again!",
-            severity: "error",
-          });
-        }
-      }
-    } catch (error: any) {
-      // TODO: blech:
-      let message = error.msg || "Minting failed! Please try again!";
-      if (!error.msg) {
-        if (error.message.indexOf("0x138")) {
-        } else if (error.message.indexOf("0x137")) {
-          message = `SOLD OUT!`;
-        } else if (error.message.indexOf("0x135")) {
-          message = `Insufficient funds to mint. Please fund your wallet.`;
-        }
-      } else {
-        if (error.code === 311) {
-          message = `SOLD OUT!`;
-          setIsSoldOut(true);
-        } else if (error.code === 312) {
-          message = `Minting period hasn't started yet.`;
-        }
-      }
+    //       const minted = localStorage.getItem(localString);
+    //       const addOne = Number(minted) + 1;
+    //       setMinted(addOne);
+    //       localStorage.setItem(localString, addOne.toString());
 
-      setAlertState({
-        open: true,
-        message,
-        severity: "error",
-      });
-    } finally {
-      if (wallet?.publicKey) {
-        const balance = await connection.getBalance(wallet?.publicKey);
-        setBalance(balance / LAMPORTS_PER_SOL);
-      }
-      dispatch(setLoading(false));
-    }
+    //       const anchorWallet = {
+    //         publicKey: wallet.publicKey,
+    //         signAllTransactions: wallet.signAllTransactions,
+    //         signTransaction: wallet.signTransaction,
+    //       } as anchor.Wallet;
+    //       const { candyMachine, goLiveDate, itemsRemaining } =
+    //         await getCandyMachineState(
+    //           anchorWallet,
+    //           candyMachineId,
+    //           connection
+    //         );
+    //       dispatch(setRemaining(itemsRemaining));
+    //     } else {
+    //       setAlertState({
+    //         open: true,
+    //         message: "Mint failed! Please try again!",
+    //         severity: "error",
+    //       });
+    //     }
+    //   }
+    // } catch (error: any) {
+    //   let message = error.msg || "Minting failed! Please try again!";
+    //   if (!error.msg) {
+    //     if (error.message.indexOf("0x138")) {
+    //     } else if (error.message.indexOf("0x137")) {
+    //       message = `SOLD OUT!`;
+    //     } else if (error.message.indexOf("0x135")) {
+    //       message = `Insufficient funds to mint. Please fund your wallet.`;
+    //     }
+    //   } else {
+    //     if (error.code === 311) {
+    //       message = `SOLD OUT!`;
+    //       setIsSoldOut(true);
+    //     } else if (error.code === 312) {
+    //       message = `Minting period hasn't started yet.`;
+    //     }
+    //   }
+    //   setAlertState({
+    //     open: true,
+    //     message,
+    //     severity: "error",
+    //   });
+    // } finally {
+    //   if (wallet?.publicKey) {
+    //     const balance = await connection.getBalance(wallet?.publicKey);
+    //     setBalance(balance / LAMPORTS_PER_SOL);
+    //   }
+
+    //   dispatch(setLoading(false));
+    // }
   };
 
   // Set Address & Balance
@@ -175,6 +217,8 @@ const Mint = () => {
       const { candyMachine, goLiveDate, itemsRemaining } =
         await getCandyMachineState(anchorWallet, candyMachineId, connection);
 
+      // dispatch(setRemaining(itemsRemaining));
+      dispatch(setRemaining(7777));
       setIsSoldOut(itemsRemaining === 0);
       setStartDate(goLiveDate);
       setCandyMachine(candyMachine);
@@ -188,15 +232,16 @@ const Mint = () => {
 
   return (
     <div className="col-12 h-100 d-flex flex-column align-items-center">
-      <div className="col-3">
-        <img
+      <div className="col-8 col-md-5 col-lg-2">
+        {/* <img
           src={example}
           alt="nfteepee_example"
           className="nfteepee_example"
-        />
+        /> */}
+        <img className="img-fluid teepee_gif" src={teepee_gif} alt="" />
       </div>
-      <div className="col-6 mint_box">
-        <div className="minting_stats d-flex flex-row col-12 justify-content-around align-items-center h-100">
+      <div className="col-12 col-md-10 col-lg-6 mint_box">
+        <div className="minting_stats d-flex flex-row flex-wrap col-10 offset-1 col-md-12 offset-md-0 justify-content-around align-items-center h-100">
           {wallet.connected && (
             <p>
               <span className="stat_header">Address</span>
@@ -234,14 +279,18 @@ const Mint = () => {
           </MintContainer>
           {wallet.connected && (
             <p>
-              <span className="stat_header">Balance</span>
+              <span className="stat_header">Remaining</span>
               <br />
-              <span className="stat">
-                {(balance || 0).toLocaleString()} SOL
-              </span>
+              <span className="stat">{itemsLeft.toLocaleString()}</span>
             </p>
           )}
         </div>
+        <Countdown
+          date={launchDate}
+          // onMount={({ completed }) => completed && setIsActive(true)}
+          // onComplete={() => setIsActive(true)}
+          renderer={renderCounter}
+        />
       </div>
 
       <Snackbar
