@@ -37,11 +37,11 @@ export default function Terms(props) {
         />
         <h1 style={{ color: "white", fontSize: "3rem" }}>Ownership</h1>
         <p style={{ color: "white", fontSize: "1.25rem", padding: "0px 40px" }}>
-          i. You Own the NFT. Each NFTeePee is an NFT on the Ethereum
-          blockchain. When you purchase an NFT, you own the underlying NFTeePee,
-          the Art, completely. Ownership of the NFT is mediated entirely by the
-          Smart Contract and the Ethereum Network: at no point may we seize,
-          freeze, or otherwise modify the ownership of any NFTeePee.
+          i. You Own the NFT. Each NFTeePee is an NFT on the Solana blockchain.
+          When you purchase an NFT, you own the underlying NFTeePee, the Art,
+          completely. Ownership of the NFT is mediated entirely by the Smart
+          Contract and the Solana Network: at no point may we seize, freeze, or
+          otherwise modify the ownership of any NFTeePee.
         </p>
 
         <p style={{ color: "white", fontSize: "1.25rem", padding: "0px 40px" }}>

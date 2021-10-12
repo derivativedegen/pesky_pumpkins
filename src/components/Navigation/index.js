@@ -53,13 +53,16 @@ const Header = (props) => {
           ABOUT
         </Link>
         <Link to="/roadmap" className={`nav-link ${activePage("roadmap")}`}>
-          ROADMAP
+          ROLLMAP
         </Link>
         <Link to="/tools" className={`nav-link ${activePage("tools")}`}>
           TOOLS
         </Link>
         <Link to="/team" className={`nav-link ${activePage("team")}`}>
           TEAM
+        </Link>
+        <Link to="/terms" className={`nav-link ${activePage("terms")}`}>
+          TERMS
         </Link>
       </div>
 
@@ -81,7 +84,7 @@ const Header = (props) => {
             ABOUT
           </Link>
           <Link to="/roadmap" onClick={() => setMenu(false)}>
-            ROADMAP
+            ROLLMAP
           </Link>
           <Link to="/tools" onClick={() => setMenu(false)}>
             TOOLS

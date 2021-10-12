@@ -19,7 +19,7 @@ export const contributors = [
     link: "https://twitter.com/CatonZeMoon",
   },
   {
-    name: "DavidMnstr",
+    name: "Dmnstr01",
     role: "Back End",
     image: david,
     link: "https://twitter.com/hasheddude",

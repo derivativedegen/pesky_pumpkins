@@ -25,7 +25,7 @@ export default function Navigation(props) {
   const currentPage = useSelector(selectCurrentPage);
   const loading = useSelector(selectLoading);
   const colorMode = useSelector(selectColorMode);
-  const nav = ["mint", "about", "roadmap", "team", "tools", "terms"];
+  const nav = ["mint", "about", "rollmap", "team", "tools", "terms"];
 
   const activePage = (page) => {
     if (currentPage === page) {

@@ -196,7 +196,7 @@ const Mint = () => {
         <img className="img-fluid teepee_gif" src={teepee_gif} alt="" />
       </div>
       <div className="col-12 col-md-10 col-lg-6 mint_box">
-        <div className="minting_stats d-flex flex-row col-12 justify-content-around align-items-center h-100">
+        <div className="minting_stats d-flex flex-row flex-wrap col-10 offset-1 col-md-12 offset-md-0 justify-content-around align-items-center h-100">
           {wallet.connected && (
             <p>
               <span className="stat_header">Address</span>
