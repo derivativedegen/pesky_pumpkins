@@ -22,7 +22,7 @@ export default function Home(props) {
 
   return (
     <Router>
-      <div class={`App d-flex flex-column col-12 h-100 ${colorMode}`}>
+      <div className={`App d-flex flex-column col-12 h-100 ${colorMode}`}>
         <div className="navigation col-12">
           <Navigation />
         </div>

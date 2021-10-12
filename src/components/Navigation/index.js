@@ -30,22 +30,13 @@ const Header = (props) => {
 
   return (
     <nav className="navbar">
-      <div className="col-2 logo_container">
+      <div className="col-3 logo_container">
         <Link to="/" style={{ textDecoration: "none" }}>
           <img src={logo} className="nav_logo" alt="logo" />
         </Link>
       </div>
 
-      <div className="col-3 social-links">
-        <a href={links.twitter.url} target="_blank">
-          <img className="social_icon" src={twitter} alt="twitter" />
-        </a>
-        <a href={links.discord.url} target="_blank">
-          <img className="social_icon" src={discord} alt="discord" />
-        </a>
-      </div>
-
-      <div className="col-7 nav-links">
+      <div className="col-6 nav-links">
         <Link to="/" className={`nav-link ${activePage("mint")}`}>
           MINT
         </Link>
@@ -64,6 +55,15 @@ const Header = (props) => {
         <Link to="/terms" className={`nav-link ${activePage("terms")}`}>
           TERMS
         </Link>
+      </div>
+
+      <div className="col-3 social-links">
+        <a href={links.twitter.url} target="_blank">
+          <img className="social_icon" src={twitter} alt="twitter" />
+        </a>
+        <a href={links.discord.url} target="_blank">
+          <img className="social_icon" src={discord} alt="discord" />
+        </a>
       </div>
 
       <div onClick={showMenu} className="menu-icon">

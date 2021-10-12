@@ -32,14 +32,14 @@
 .social-links {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
 }
 
 .nav-links {
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: center;
 }
 
 .nav-link {
@@ -122,6 +122,9 @@
 }
 
 @media screen and (max-width: 1250px) {
+  .nav_logo {
+    padding-left: 0px;
+  }
   .nav-links {
     display: none;
   }

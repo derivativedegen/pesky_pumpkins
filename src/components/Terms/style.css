@@ -5,3 +5,15 @@
 .terms_text {
   overflow: scroll;
 }
+
+.terms_paragraph {
+  color: white;
+  font-size: 1.25rem;
+  padding: 0px 40px;
+}
+
+@media screen and (max-width: 1250px) {
+  .terms_paragraph {
+    padding: 0px 0px !important;
+  }
+}

@@ -5,6 +5,7 @@ import logo from "../../assets/images/logo.png";
 import teepee_gif from "../../assets/images/teepee_gif.gif";
 import "./style.css";
 import example from "../../assets/images/nfteepee4.png";
+import { links } from "../../constants/constants";
 
 export default function About(props) {
   const dispatch = useDispatch();
@@ -57,6 +58,14 @@ export default function About(props) {
           When your favorite warehouse store is out of toilet paper...
         </p>
         <h2 style={{ color: "white", fontSize: "2rem" }}>WE GOT YOU!</h2>
+        <div className="d-flex col-12 flex-wrap justify-content-center">
+          <a href={links.discord.url} target="_blank">
+            <button className="btn-button btn-accent btn-large">Discord</button>
+          </a>
+          <a href={links.twitter.url} target="_blank">
+            <button className="btn-button btn-accent btn-large">Twitter</button>
+          </a>
+        </div>
       </div>
     </div>
   );
