@@ -57,11 +57,14 @@ const txTimeout = 30000; // milliseconds (confirm this works for your project)
 const Mint = () => {
   const [isActive, setIsActive] = useState(false); // true when countdown completes
   const [isSoldOut, setIsSoldOut] = useState(false); // true when items remaining is zero
+  const [itemsLeft, setItemsLeft] = useState(7777);
+  const [minted, setMinted] = useState(0);
   const dispatch = useDispatch();
   const balance = useSelector(selectBalance);
   const loading = useSelector(selectLoading);
   const addressFull = useSelector(selectAddress);
   const addressShort = shortenAddress(addressFull);
+  const localString = addressFull + "-teepee";
 
   const [alertState, setAlertState] = useState<AlertState>({
     open: false,
@@ -74,9 +77,22 @@ const Mint = () => {
   const wallet = useWallet();
   const [candyMachine, setCandyMachine] = useState<CandyMachine>();
 
+  useEffect(() => {
+    const minted = localStorage.getItem(localString);
+    if (!minted) {
+      // localStorage.setItem(localString, "0");
+      console.log("none minted");
+      setMinted(0);
+    }
+  }, [addressFull]);
+
   // Mint Function
   const onMint = async () => {
-    // alert("not functional");
+    if (minted >= 10) {
+      alert("You can only mint 10 TeePees per Address");
+      return;
+    }
+
     try {
       dispatch(setLoading(true));
       if (wallet.connected && candyMachine?.program && wallet.publicKey) {
@@ -99,6 +115,10 @@ const Mint = () => {
             message: "Congratulations! Mint succeeded!",
             severity: "success",
           });
+          const minted = localStorage.getItem(localString);
+          const addOne = Number(minted) + 1;
+          setMinted(addOne);
+          localStorage.setItem(localString, addOne.toString());
         } else {
           setAlertState({
             open: true,
@@ -135,6 +155,7 @@ const Mint = () => {
         const balance = await connection.getBalance(wallet?.publicKey);
         setBalance(balance / LAMPORTS_PER_SOL);
       }
+
       dispatch(setLoading(false));
     }
   };
@@ -174,6 +195,7 @@ const Mint = () => {
       const { candyMachine, goLiveDate, itemsRemaining } =
         await getCandyMachineState(anchorWallet, candyMachineId, connection);
 
+      setItemsLeft(itemsRemaining);
       setIsSoldOut(itemsRemaining === 0);
       setStartDate(goLiveDate);
       setCandyMachine(candyMachine);
@@ -234,11 +256,9 @@ const Mint = () => {
           </MintContainer>
           {wallet.connected && (
             <p>
-              <span className="stat_header">Balance</span>
+              <span className="stat_header">Remaining</span>
               <br />
-              <span className="stat">
-                {(balance || 0).toLocaleString()} SOL
-              </span>
+              <span className="stat">{itemsLeft.toLocaleString()}</span>
             </p>
           )}
         </div>

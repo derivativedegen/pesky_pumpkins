@@ -11,3 +11,10 @@
 .nfteepee_example {
   height: 300px;
 }
+
+@media screen and (max-width: 750px) {
+  .about_text {
+    font-size: 1.15rem;
+    padding: 0px 15px;
+  }
+}

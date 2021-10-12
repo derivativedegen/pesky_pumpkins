@@ -16,28 +16,20 @@ export default function Roadmap(props) {
 
   return (
     <div className="roadmap_container col-12 d-flex justify-content-center align-items-center">
-      <div className="page_box col-12 col-md-8">
+      <div className="page_box col-12 col-md-8 d-flex flex-row flex-wrap justify-content-center">
         {/* <h1 style={{ color: "white", fontSize: "3rem" }}>ROLLMAP</h1> */}
-        <img
-          src={wipe1}
-          alt="wipe1"
-          style={{ height: "450px", width: "auto" }}
-        />
-        <img
-          src={wipe2}
-          alt="wipe2"
-          style={{ height: "450px", width: "auto" }}
-        />
-        <img
-          src={wipe3}
-          alt="wipe3"
-          style={{ height: "450px", width: "auto" }}
-        />
-        <img
-          src={wipe4}
-          alt="wipe4"
-          style={{ height: "450px", width: "auto" }}
-        />
+        <div className="col-12 col-md-5">
+          <img src={wipe1} alt="wipe1" className="img-fluid" />
+        </div>
+        <div className="col-12 col-md-5">
+          <img src={wipe2} alt="wipe2" className="img-fluid" />
+        </div>
+        <div className="col-12 col-md-5">
+          <img src={wipe3} alt="wipe3" className="img-fluid" />
+        </div>
+        <div className="col-12 col-md-5">
+          <img src={wipe4} alt="wipe4" className="img-fluid" />
+        </div>
       </div>
     </div>
   );
