@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import styled from "styled-components";
 import Countdown from "react-countdown";
@@ -56,12 +56,12 @@ const connection = new anchor.web3.Connection(rpcHost);
 const startDateSeed = parseInt(process.env.REACT_APP_CANDY_START_DATE!, 10);
 const txTimeout = 30000; // milliseconds (confirm this works for your project)
 
-const utc = 1634086800000;
-const launchDate = new Date(utc);
-console.log({ launchDate });
+const utcLaunch = 1634090400000; // LAUNCH_TODO: CHANGE
+const launchDate = new Date(utcLaunch);
 
 const Mint = () => {
   const [isActive, setIsActive] = useState(true); // true when countdown completes
+  const [hideCountdown, setHideCountdown] = useState(false);
   const [isSoldOut, setIsSoldOut] = useState(false); // true when items remaining is zero
   const [minted, setMinted] = useState(0);
   const dispatch = useDispatch();
@@ -86,8 +86,8 @@ const Mint = () => {
   useEffect(() => {
     const minted = localStorage.getItem(localString);
     if (!minted) {
+      // console.log("none minted");
       // localStorage.setItem(localString, "0");
-      console.log("none minted");
       setMinted(0);
     } else {
       setMinted(Number(minted));
@@ -96,11 +96,15 @@ const Mint = () => {
 
   // Mint Function
   const onMint = async () => {
-    alert("TeePees hasn't launched yet!");
-    // if (minted >= 10) {
-    //   alert("You can only mint 10 TeePees per Address");
-    //   return;
-    // }
+    if (Date.now() < utcLaunch) {
+      alert("NFTeePees hasn't launched yet!");
+      return;
+    }
+
+    if (minted >= 10) {
+      alert("You can only mint 10 TeePees per Address");
+      return;
+    }
 
     // try {
     //   dispatch(setLoading(true));
@@ -217,8 +221,8 @@ const Mint = () => {
       const { candyMachine, goLiveDate, itemsRemaining } =
         await getCandyMachineState(anchorWallet, candyMachineId, connection);
 
-      // dispatch(setRemaining(itemsRemaining));
-      dispatch(setRemaining(7777));
+      // dispatch(setRemaining(itemsRemaining)); // LAUNCH_TODO: CHANGE
+      dispatch(setRemaining(7777)); // LAUNCH_TODO: CHANGE
       setIsSoldOut(itemsRemaining === 0);
       setStartDate(goLiveDate);
       setCandyMachine(candyMachine);
@@ -233,12 +237,11 @@ const Mint = () => {
   return (
     <div className="col-12 h-100 d-flex flex-column align-items-center">
       <div className="col-8 col-md-5 col-lg-2">
-        {/* <img
-          src={example}
-          alt="nfteepee_example"
-          className="nfteepee_example"
-        /> */}
-        <img className="img-fluid teepee_gif" src={teepee_gif} alt="" />
+        <img
+          className="img-fluid teepee_gif"
+          src={teepee_gif}
+          alt="teepees_gif"
+        />
       </div>
       <div className="col-12 col-md-10 col-lg-6 mint_box">
         <div className="minting_stats d-flex flex-row flex-wrap col-10 offset-1 col-md-12 offset-md-0 justify-content-around align-items-center h-100">
@@ -285,12 +288,14 @@ const Mint = () => {
             </p>
           )}
         </div>
-        <Countdown
-          date={launchDate}
-          // onMount={({ completed }) => completed && setIsActive(true)}
-          // onComplete={() => setIsActive(true)}
-          renderer={renderCounter}
-        />
+        <div className={hideCountdown ? "d-none" : ""}>
+          <Countdown
+            date={launchDate}
+            onMount={({ completed }) => completed && setHideCountdown(true)}
+            onComplete={() => setHideCountdown(true)}
+            renderer={renderCounter}
+          />
+        </div>
       </div>
 
       <Snackbar
