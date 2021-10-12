@@ -55,9 +55,9 @@ const Header = (props) => {
         <Link to="/roadmap" className={`nav-link ${activePage("roadmap")}`}>
           ROLLMAP
         </Link>
-        <Link to="/tools" className={`nav-link ${activePage("tools")}`}>
+        {/* <Link to="/tools" className={`nav-link ${activePage("tools")}`}>
           TOOLS
-        </Link>
+        </Link> */}
         <Link to="/team" className={`nav-link ${activePage("team")}`}>
           TEAM
         </Link>
@@ -86,18 +86,18 @@ const Header = (props) => {
           <Link to="/roadmap" onClick={() => setMenu(false)}>
             ROLLMAP
           </Link>
-          <Link to="/tools" onClick={() => setMenu(false)}>
+          {/* <Link to="/tools" onClick={() => setMenu(false)}>
             TOOLS
-          </Link>
+          </Link> */}
           <Link to="/team" onClick={() => setMenu(false)}>
             TEAM
           </Link>
           {/* <a href={links.contract.url} target="_blank">
             Contract
           </a> */}
-          {/* <Link to="/terms" onClick={() => setMenu(false)}>
+          <Link to="/terms" onClick={() => setMenu(false)}>
             TERMS
-          </Link> */}
+          </Link>
         </div>
         <div className="col-12 d-flex justify-content-center align-items-center pb-5">
           <a href={links.twitter.url} target="_blank">

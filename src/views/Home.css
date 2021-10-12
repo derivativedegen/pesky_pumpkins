@@ -12,10 +12,10 @@
     url("../assets/images/background2.png") center / cover fixed no-repeat;
 }
 
-.dark_mode {
+/* .dark_mode {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url("../assets/images/background.png") center / cover fixed no-repeat;
-}
+} */
 
 .font_main {
   font-family: "MTV";
