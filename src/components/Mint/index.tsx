@@ -56,7 +56,7 @@ const connection = new anchor.web3.Connection(rpcHost);
 const startDateSeed = parseInt(process.env.REACT_APP_CANDY_START_DATE!, 10);
 const txTimeout = 30000; // milliseconds (confirm this works for your project)
 
-// const utcLaunch = 1634086800000; // 9pm est oct 12
+// const utcLaunch = 1634148000000; // 2pm est oct 13
 const utcLaunch = 1634151600000; // LAUNCH_TODO: CHANGE -- 3pm est oct 13
 const launchDate = new Date(utcLaunch);
 
