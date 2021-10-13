@@ -86,8 +86,6 @@ const Mint = () => {
   useEffect(() => {
     const minted = localStorage.getItem(localString);
     if (!minted) {
-      // console.log("none minted");
-      // localStorage.setItem(localString, "0");
       setMinted(0);
     } else {
       setMinted(Number(minted));
@@ -105,6 +103,8 @@ const Mint = () => {
       alert("You can only mint 10 TeePees per Address");
       return;
     }
+
+    alert("Please wait a moment");
 
     // try {
     //   dispatch(setLoading(true));
@@ -221,9 +221,9 @@ const Mint = () => {
       const { candyMachine, goLiveDate, itemsRemaining } =
         await getCandyMachineState(anchorWallet, candyMachineId, connection);
 
-      // dispatch(setRemaining(itemsRemaining)); // LAUNCH_TODO: CHANGE
-      dispatch(setRemaining(7777)); // LAUNCH_TODO: CHANGE
-      setIsSoldOut(itemsRemaining === 0);
+      // dispatch(setRemaining(itemsRemaining)); // LAUNCH_TODO: COMMENT IN
+      dispatch(setRemaining(7777)); // LAUNCH_TODO: COMMENT OUT
+      setIsSoldOut(itemsRemaining !== 0); // LAUNCH_TODO: CHANGE to ===
       setStartDate(goLiveDate);
       setCandyMachine(candyMachine);
       dispatch(setConnected(wallet.connected));
