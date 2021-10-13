@@ -56,7 +56,9 @@ const connection = new anchor.web3.Connection(rpcHost);
 const startDateSeed = parseInt(process.env.REACT_APP_CANDY_START_DATE!, 10);
 const txTimeout = 30000; // milliseconds (confirm this works for your project)
 
-const utcLaunch = 1634090400000; // LAUNCH_TODO: CHANGE
+
+// const utcLaunch = 1634086800000; // 9pm est oct 12
+const utcLaunch = 1634151600000; // LAUNCH_TODO: CHANGE -- 3pm est oct 13
 const launchDate = new Date(utcLaunch);
 
 const Mint = () => {
@@ -104,86 +106,87 @@ const Mint = () => {
       return;
     }
 
-    alert("Please wait a moment");
+    try {
+      dispatch(setLoading(true));
+      if (wallet.connected && candyMachine?.program && wallet.publicKey) {
+        const mintTxId = await mintOneToken(
+          candyMachine,
+          config,
+          wallet.publicKey,
+          treasury
+        );
+        const status = await awaitTransactionSignatureConfirmation(
+          mintTxId,
+          txTimeout,
+          connection,
+          "singleGossip",
+          false
+        );
+        if (!status?.err) {
+          setAlertState({
+            open: true,
+            message: "Congratulations! Mint succeeded!",
+            severity: "success",
+          });
 
-    // try {
-    //   dispatch(setLoading(true));
-    //   if (wallet.connected && candyMachine?.program && wallet.publicKey) {
-    //     const mintTxId = await mintOneToken(
-    //       candyMachine,
-    //       config,
-    //       wallet.publicKey,
-    //       treasury
-    //     );
-    //     const status = await awaitTransactionSignatureConfirmation(
-    //       mintTxId,
-    //       txTimeout,
-    //       connection,
-    //       "singleGossip",
-    //       false
-    //     );
-    //     if (!status?.err) {
-    //       setAlertState({
-    //         open: true,
-    //         message: "Congratulations! Mint succeeded!",
-    //         severity: "success",
-    //       });
+          const minted = localStorage.getItem(localString);
+          const addOne = Number(minted) + 1;
+          setMinted(addOne);
+          localStorage.setItem(localString, addOne.toString());
 
-    //       const minted = localStorage.getItem(localString);
-    //       const addOne = Number(minted) + 1;
-    //       setMinted(addOne);
-    //       localStorage.setItem(localString, addOne.toString());
+          const anchorWallet = {
+            publicKey: wallet.publicKey,
+            signAllTransactions: wallet.signAllTransactions,
+            signTransaction: wallet.signTransaction,
+          } as anchor.Wallet;
+          const { candyMachine, goLiveDate, itemsRemaining } =
+            await getCandyMachineState(
+              anchorWallet,
+              candyMachineId,
+              connection
+            );
+          dispatch(setRemaining(itemsRemaining));
+          if (itemsRemaining === 0) {
+            setIsSoldOut(true);
+          }
+        } else {
+          setAlertState({
+            open: true,
+            message: "Mint failed! Please try again!",
+            severity: "error",
+          });
+        }
+      }
+    } catch (error: any) {
+      let message = error.msg || "Minting failed! Please try again!";
+      if (!error.msg) {
+        if (error.message.indexOf("0x138")) {
+        } else if (error.message.indexOf("0x137")) {
+          message = `SOLD OUT!`;
+        } else if (error.message.indexOf("0x135")) {
+          message = `Insufficient funds to mint. Please fund your wallet.`;
+        }
+      } else {
+        if (error.code === 311) {
+          message = `SOLD OUT!`;
+          setIsSoldOut(true);
+        } else if (error.code === 312) {
+          message = `Minting period hasn't started yet.`;
+        }
+      }
+      setAlertState({
+        open: true,
+        message,
+        severity: "error",
+      });
+    } finally {
+      if (wallet?.publicKey) {
+        const balance = await connection.getBalance(wallet?.publicKey);
+        setBalance(balance / LAMPORTS_PER_SOL);
+      }
 
-    //       const anchorWallet = {
-    //         publicKey: wallet.publicKey,
-    //         signAllTransactions: wallet.signAllTransactions,
-    //         signTransaction: wallet.signTransaction,
-    //       } as anchor.Wallet;
-    //       const { candyMachine, goLiveDate, itemsRemaining } =
-    //         await getCandyMachineState(
-    //           anchorWallet,
-    //           candyMachineId,
-    //           connection
-    //         );
-    //       dispatch(setRemaining(itemsRemaining));
-    //     } else {
-    //       setAlertState({
-    //         open: true,
-    //         message: "Mint failed! Please try again!",
-    //         severity: "error",
-    //       });
-    //     }
-    //   }
-    // } catch (error: any) {
-    //   let message = error.msg || "Minting failed! Please try again!";
-    //   if (!error.msg) {
-    //     if (error.message.indexOf("0x138")) {
-    //     } else if (error.message.indexOf("0x137")) {
-    //       message = `SOLD OUT!`;
-    //     } else if (error.message.indexOf("0x135")) {
-    //       message = `Insufficient funds to mint. Please fund your wallet.`;
-    //     }
-    //   } else {
-    //     if (error.code === 311) {
-    //       message = `SOLD OUT!`;
-    //       setIsSoldOut(true);
-    //     } else if (error.code === 312) {
-    //       message = `Minting period hasn't started yet.`;
-    //     }
-    //   }
-    //   setAlertState({
-    //     open: true,
-    //     message,
-    //     severity: "error",
-    //   });
-    // } finally {
-    //   if (wallet?.publicKey) {
-    //     const balance = await connection.getBalance(wallet?.publicKey);
-    //     setBalance(balance / LAMPORTS_PER_SOL);
-    //   }
-
-    //   dispatch(setLoading(false));
-    // }
+      dispatch(setLoading(false));
+    }
   };
 
   // Set Address & Balance
@@ -221,9 +224,10 @@ const Mint = () => {
       const { candyMachine, goLiveDate, itemsRemaining } =
         await getCandyMachineState(anchorWallet, candyMachineId, connection);
 
-      // dispatch(setRemaining(itemsRemaining)); // LAUNCH_TODO: COMMENT IN
-      dispatch(setRemaining(7777)); // LAUNCH_TODO: COMMENT OUT
-      setIsSoldOut(itemsRemaining !== 0); // LAUNCH_TODO: CHANGE to ===
+
+      dispatch(setRemaining(itemsRemaining)); // LAUNCH_TODO: COMMENT IN
+      // dispatch(setRemaining(7777)); // LAUNCH_TODO: COMMENT OUT
+      setIsSoldOut(itemsRemaining === 0); // LAUNCH_TODO: CHANGE TO ===
       setStartDate(goLiveDate);
       setCandyMachine(candyMachine);
       dispatch(setConnected(wallet.connected));
@@ -247,9 +251,11 @@ const Mint = () => {
         <div className="minting_stats d-flex flex-row flex-wrap col-10 offset-1 col-md-12 offset-md-0 justify-content-around align-items-center h-100">
           {wallet.connected && (
             <p>
-              <span className="stat_header">Address</span>
+              {/* <span className="stat_header">Address</span> */}
+              <span className="stat_header">Mint Price</span>
               <br />
-              <span className="stat">{addressShort}</span>
+              {/* <span className="stat">{addressShort}</span> */}
+              <span className="stat">1 SOL</span>
             </p>
           )}
           <MintContainer>
