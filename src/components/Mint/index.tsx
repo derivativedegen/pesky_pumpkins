@@ -56,7 +56,7 @@ const connection = new anchor.web3.Connection(rpcHost);
 const startDateSeed = parseInt(process.env.REACT_APP_CANDY_START_DATE!, 10);
 const txTimeout = 30000; // milliseconds (confirm this works for your project)
 
-// const utcLaunch = 1634086800000; // LAUNCH_TODO: CHANGE -- 9pm est oct 12
+// const utcLaunch = 1634086800000; // 9pm est oct 12
 const utcLaunch = 1634151600000; // LAUNCH_TODO: CHANGE -- 3pm est oct 13
 const launchDate = new Date(utcLaunch);
 
@@ -96,10 +96,10 @@ const Mint = () => {
 
   // Mint Function
   const onMint = async () => {
-    if (Date.now() < utcLaunch) {
-      alert("NFTeePees hasn't launched yet!");
-      return;
-    }
+    // if (Date.now() < utcLaunch) {
+    //   alert("NFTeePees hasn't launched yet!");
+    //   return;
+    // }
 
     if (minted >= 10) {
       alert("You can only mint 10 TeePees per Address");
@@ -224,9 +224,9 @@ const Mint = () => {
       const { candyMachine, goLiveDate, itemsRemaining } =
         await getCandyMachineState(anchorWallet, candyMachineId, connection);
 
-      // dispatch(setRemaining(itemsRemaining)); // LAUNCH_TODO: COMMENT IN
-      dispatch(setRemaining(7777)); // LAUNCH_TODO: COMMENT OUT
-      setIsSoldOut(itemsRemaining !== 0); // LAUNCH_TODO: CHANGE TO ===
+      dispatch(setRemaining(itemsRemaining)); // LAUNCH_TODO: COMMENT IN
+      // dispatch(setRemaining(7777)); // LAUNCH_TODO: COMMENT OUT
+      setIsSoldOut(itemsRemaining === 0); // LAUNCH_TODO: CHANGE TO ===
       setStartDate(goLiveDate);
       setCandyMachine(candyMachine);
       dispatch(setConnected(wallet.connected));
