@@ -96,10 +96,10 @@ const Mint = () => {
 
   // Mint Function
   const onMint = async () => {
-    // if (Date.now() < utcLaunch) {
-    //   alert("NFTeePees hasn't launched yet!");
-    //   return;
-    // }
+    if (Date.now() < utcLaunch) {
+      alert("NFTeePees hasn't launched yet!");
+      return;
+    }
 
     if (minted >= 10) {
       alert("You can only mint 10 TeePees per Address");
