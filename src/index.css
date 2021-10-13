@@ -22,7 +22,7 @@ code {
   src: local("Rajdhani"), url("./assets/fonts/Rajdhani.ttf") format("truetype");
 }
 
-.makeStyles-root-1 .MuiDialogTitle-root {
+/* .MuiDialogTitle-root {
   color: white !important;
   background: radial-gradient(
     circle at left bottom,
@@ -32,14 +32,11 @@ code {
   ) !important;
 }
 
-.makeStyles-root-1 .MuiDialogContent-root .MuiListItem-root .MuiButton-root {
+.MuiButton-root {
   color: white !important;
 }
 
-.makeStyles-root-1
-  .MuiDialogContent-root
-  .MuiListItem-root
-  .MuiButton-root:hover {
+.MuiButton-root:hover {
   color: black !important;
   background: rgb(212, 212, 212) !important;
-}
+} */
