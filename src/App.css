@@ -41,27 +41,3 @@ body {
   background-color: #000;
   text-align: center;
 }
-
-.makeStyles-root-1 .MuiDialogTitle-root {
-  color: white;
-  background: radial-gradient(
-    circle at left bottom,
-    rgb(193, 122, 171),
-    rgb(77, 96, 185),
-    rgb(80, 235, 188)
-  );
-  /* border-bottom: 1px solid black; */
-}
-
-.makeStyles-root-1 .MuiDialogContent-root .MuiListItem-root .MuiButton-root {
-  color: white;
-  /* border: 0.5px solid black; */
-}
-
-.makeStyles-root-1
-  .MuiDialogContent-root
-  .MuiListItem-root
-  .MuiButton-root:hover {
-  color: black;
-  background: rgb(212, 212, 212);
-}

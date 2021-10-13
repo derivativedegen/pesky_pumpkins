@@ -250,9 +250,11 @@ const Mint = () => {
         <div className="minting_stats d-flex flex-row flex-wrap col-10 offset-1 col-md-12 offset-md-0 justify-content-around align-items-center h-100">
           {wallet.connected && (
             <p>
-              <span className="stat_header">Address</span>
+              {/* <span className="stat_header">Address</span> */}
+              <span className="stat_header">Mint Price</span>
               <br />
-              <span className="stat">{addressShort}</span>
+              {/* <span className="stat">{addressShort}</span> */}
+              <span className="stat">1 SOL</span>
             </p>
           )}
           <MintContainer>
