@@ -286,9 +286,10 @@ const Mint = () => {
           </MintContainer>
           {wallet.connected && (
             <p>
-              <span className="stat_header">Remaining</span>
+              <span className="stat_header">Address</span>
               <br />
-              <span className="stat">{itemsLeft.toLocaleString()}</span>
+              {/* <span className="stat">{itemsLeft.toLocaleString()}</span> */}
+              <span className="stat">{addressShort}</span>
             </p>
           )}
         </div>
