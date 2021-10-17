@@ -247,12 +247,11 @@ const Mint = () => {
       </div>
       <div className="col-12 col-md-10 col-lg-6 mint_box">
         <div className="minting_stats d-flex flex-row flex-wrap col-10 offset-1 col-md-12 offset-md-0 justify-content-around align-items-center h-100">
-          {wallet.connected && (
+          <span className="stat">Coming Soon</span>
+          {/* {wallet.connected && (
             <p>
-              {/* <span className="stat_header">Address</span> */}
               <span className="stat_header">Mint Price</span>
               <br />
-              {/* <span className="stat">{addressShort}</span> */}
               <span className="stat">1 SOL</span>
             </p>
           )}
@@ -286,10 +285,9 @@ const Mint = () => {
           </MintContainer>
           {wallet.connected && (
             <p>
-              <span className="stat_header">Address</span>
+              <span className="stat_header">Remaining</span>
               <br />
-              {/* <span className="stat">{itemsLeft.toLocaleString()}</span> */}
-              <span className="stat">{addressShort}</span>
+              <span className="stat">{itemsLeft.toLocaleString()}</span>
             </p>
           )}
         </div>
@@ -299,7 +297,7 @@ const Mint = () => {
             onMount={({ completed }) => completed && setHideCountdown(true)}
             onComplete={() => setHideCountdown(true)}
             renderer={renderCounter}
-          />
+          /> */}
         </div>
       </div>
 
