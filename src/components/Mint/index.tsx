@@ -56,8 +56,8 @@ const connection = new anchor.web3.Connection(rpcHost);
 const startDateSeed = parseInt(process.env.REACT_APP_CANDY_START_DATE!, 10);
 const txTimeout = 30000; // milliseconds (confirm this works for your project)
 
-// const utcLaunch = 1634148000000; // 2pm est oct 13
-const utcLaunch = 1634151600000; // LAUNCH_TODO: CHANGE -- 3pm est oct 13
+// const utcLaunch = 1634151600000; // 3pm est oct 13 -- LAUNCH
+const utcLaunch = 1634623200000; // 2am est oct 19 -- RELAUNCH
 const launchDate = new Date(utcLaunch);
 
 const Mint = () => {
@@ -247,12 +247,11 @@ const Mint = () => {
       </div>
       <div className="col-12 col-md-10 col-lg-6 mint_box">
         <div className="minting_stats d-flex flex-row flex-wrap col-10 offset-1 col-md-12 offset-md-0 justify-content-around align-items-center h-100">
-          <span className="stat">Coming Soon</span>
-          {/* {wallet.connected && (
+          {wallet.connected && (
             <p>
               <span className="stat_header">Mint Price</span>
               <br />
-              <span className="stat">1 SOL</span>
+              <span className="stat">0.333 SOL</span>
             </p>
           )}
           <MintContainer>
@@ -297,7 +296,7 @@ const Mint = () => {
             onMount={({ completed }) => completed && setHideCountdown(true)}
             onComplete={() => setHideCountdown(true)}
             renderer={renderCounter}
-          /> */}
+          />
         </div>
       </div>
 
