@@ -9,7 +9,7 @@
 
 .light_mode {
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    url("../assets/images/background2.png") center / cover fixed no-repeat;
+    url("../assets/images/background.png") center / cover fixed no-repeat;
 }
 
 /* .dark_mode {

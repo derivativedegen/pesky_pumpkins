@@ -35,7 +35,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 
 import example from "../../assets/images/nfteepee4.png";
-import teepee_gif from "../../assets/images/teepee_gif.gif";
+import teepee_gif from "../../assets/images/teepee_gif.png";
 
 const ConnectButton = styled(WalletDialogButton)``;
 const CounterText = styled.span``; // add your styles here
