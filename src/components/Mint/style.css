@@ -20,11 +20,16 @@
   width: 100%;
   text-align: center;
   border-radius: 15px;
-  border: 2px solid rgb(75, 53, 134);
+  border: 2px solid black;
   box-shadow: inset 0px 0px 5px black;
-  background-color: black;
-  color: white;
-  font-size: 1.5rem;
+  background-color: rgb(250, 163, 64);
+  color: black;
+  font-size: 1.7rem;
+  margin-bottom: 20px;
+}
+
+.minted_amount {
+  font-size: 1.7rem;
   margin-bottom: 20px;
 }
 

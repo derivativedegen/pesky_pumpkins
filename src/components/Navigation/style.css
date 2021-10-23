@@ -1,6 +1,7 @@
 .navbox {
   /* background: linear-gradient(rgb(250, 163, 64), rgb(75, 53, 134)); */
-  background-color: rgb(75, 53, 134);
+  /* background-color: rgb(75, 53, 134); */
+  background-color: rgba(0, 0, 0, 0.6);
   /* background: radial-gradient(
       circle at center center,
       rgb(250, 163, 64),
@@ -8,11 +9,16 @@
     ); */
   border: 2px solid rgb(250, 163, 64);
   border-radius: 15px;
+  backdrop-filter: blur(50px);
   box-shadow: 0px 0px 20px black;
   overflow: hidden;
   padding: 30px;
   padding-top: 40px;
   /* min-height: 250px; */
+}
+
+.mintbox {
+  padding: 100px;
 }
 
 .navbar {
