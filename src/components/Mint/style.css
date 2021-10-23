@@ -16,6 +16,14 @@
   /* margin: auto auto; */
 }
 
+.input_amount {
+  width: 100%;
+  text-align: center;
+  border-radius: 15px;
+  border: none;
+  font-size: 1.5rem;
+}
+
 .stat_header {
   font-size: 2rem;
   border-bottom: 1px solid white;
