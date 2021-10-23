@@ -33,14 +33,46 @@ import {
   selectRemaining,
 } from "../../redux/app";
 import { useDispatch, useSelector } from "react-redux";
+import collection_image from "../../assets/images/collection_image.png";
 
-import example from "../../assets/images/nfteepee4.png";
-import teepee_gif from "../../assets/images/teepee_gif.png";
-
-const ConnectButton = styled(WalletDialogButton)``;
+const ConnectButton = styled(WalletDialogButton)`
+  align-items: center !important;
+  border: 2px solid rgb(250, 163, 64) !important;
+  border-radius: 15px !important;
+  box-shadow: 0px 0px 5px 2px #000000 !important;
+  color: rgb(250, 163, 64) !important;
+  cursor: pointer !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  height: 50px !important;
+  justify-content: center !important;
+  margin: 5px !important;
+  overflow: hidden !important;
+  padding: 0 50px !important;
+  transition: border 0.185s ease-out !important;
+  z-index: 3 !important;
+  background-color: rgb(75, 53, 134) !important;
+`;
 const CounterText = styled.span``; // add your styles here
 const MintContainer = styled.div``; // add your styles here
-const MintButton = styled(Button)``; // add your styles here
+const MintButton = styled(Button)`
+  align-items: center !important;
+  border: 2px solid rgb(250, 163, 64) !important;
+  border-radius: 15px !important;
+  box-shadow: 0px 0px 5px 2px #000000 !important;
+  color: rgb(250, 163, 64) !important;
+  cursor: pointer !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  height: 50px !important;
+  justify-content: center !important;
+  margin: 5px !important;
+  overflow: hidden !important;
+  padding: 0 50px !important;
+  transition: border 0.185s ease-out !important;
+  z-index: 3 !important;
+  background-color: rgb(75, 53, 134) !important;
+`; // add your styles here
 
 const treasury = new anchor.web3.PublicKey(
   process.env.REACT_APP_TREASURY_ADDRESS!
@@ -56,8 +88,11 @@ const connection = new anchor.web3.Connection(rpcHost);
 const startDateSeed = parseInt(process.env.REACT_APP_CANDY_START_DATE!, 10);
 const txTimeout = 30000; // milliseconds (confirm this works for your project)
 
-// const utcLaunch = 1634151600000; // 3pm est oct 13 -- LAUNCH
-const utcLaunch = 1634623200000; // 2am est oct 19 -- RELAUNCH
+const projectShortName = process.env.REACT_APP_PROJECT_NAME_SHORT;
+const projectFullName = process.env.REACT_APP_PROJECT_NAME_FULL;
+
+// const utcLaunch = 1635548400000; // 7pm EST Oct 29 - LAUNCH
+const utcLaunch = 1633943598000; // 7pm EST Oct 29 - LAUNCH
 const launchDate = new Date(utcLaunch);
 
 const Mint = () => {
@@ -70,7 +105,7 @@ const Mint = () => {
   const loading = useSelector(selectLoading);
   const addressFull = useSelector(selectAddress);
   const addressShort = shortenAddress(addressFull);
-  const localString = addressFull + "-teepee";
+  const localString = addressFull + "-" + projectShortName;
   const itemsLeft = useSelector(selectRemaining);
 
   const [alertState, setAlertState] = useState<AlertState>({
@@ -96,12 +131,12 @@ const Mint = () => {
   // Mint Function
   const onMint = async () => {
     if (Date.now() < utcLaunch) {
-      alert("NFTeePees hasn't launched yet!");
+      alert(`${projectFullName} hasn't launched yet!`);
       return;
     }
 
     if (minted >= 10) {
-      alert("You can only mint 10 TeePees per Address");
+      alert(`You can only mint 10 ${projectFullName} per Address`);
       return;
     }
 
@@ -238,20 +273,20 @@ const Mint = () => {
 
   return (
     <div className="col-12 h-100 d-flex flex-column align-items-center">
-      <div className="col-8 col-md-5 col-lg-2">
+      {/* <div className="col-8 col-md-5 col-lg-2">
         <img
-          className="img-fluid teepee_gif"
-          src={teepee_gif}
-          alt="teepees_gif"
+          className="img-fluid collection_image"
+          src={collection_image}
+          alt="collection_image"
         />
-      </div>
+      </div> */}
       <div className="col-12 col-md-10 col-lg-6 mint_box">
         <div className="minting_stats d-flex flex-row flex-wrap col-10 offset-1 col-md-12 offset-md-0 justify-content-around align-items-center h-100">
           {wallet.connected && (
             <p>
               <span className="stat_header">Mint Price</span>
               <br />
-              <span className="stat">0.333 SOL</span>
+              <span className="stat">1 SOL</span>
             </p>
           )}
           <MintContainer>

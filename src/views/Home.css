@@ -12,11 +12,6 @@
     url("../assets/images/background.png") center / cover fixed no-repeat;
 }
 
-/* .dark_mode {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("../assets/images/background.png") center / cover fixed no-repeat;
-} */
-
 .font_main {
   font-family: "MTV";
 }
@@ -36,13 +31,8 @@
 }
 
 .page_box {
-  background: radial-gradient(
-    circle at left bottom,
-    rgb(193, 122, 171),
-    rgb(77, 96, 185),
-    rgb(80, 235, 188)
-  );
-  border: 2px solid rgba(0, 0, 0, 0.8);
+  background: linear-gradient(rgb(75, 53, 134), rgb(250, 163, 64));
+  border: 2px solid rgb(250, 163, 64);
   border-radius: 15px;
   box-shadow: 0px 0px 20px black;
   /* box-shadow: 0px 0px 20px 5px white; */

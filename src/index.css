@@ -13,13 +13,14 @@ code {
 }
 
 @font-face {
-  font-family: "MTV";
-  src: local("MTV"), url("./assets/fonts/MTV.ttf") format("truetype");
+  font-family: "main";
+  src: local("main"),
+    url("./assets/fonts/MidnightMinutes.otf") format("opentype");
 }
 
 @font-face {
-  font-family: "Rajdhani";
-  src: local("Rajdhani"), url("./assets/fonts/Rajdhani.ttf") format("truetype");
+  font-family: "alt";
+  src: local("alt"), url("./assets/fonts/Rajdhani.ttf") format("truetype");
 }
 
 /* .MuiDialogTitle-root {
