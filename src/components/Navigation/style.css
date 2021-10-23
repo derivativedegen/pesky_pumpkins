@@ -1,6 +1,6 @@
 .navbox {
-  background: linear-gradient(rgb(250, 163, 64), rgb(75, 53, 134));
-  background-color: black;
+  /* background: linear-gradient(rgb(250, 163, 64), rgb(75, 53, 134)); */
+  background-color: rgb(75, 53, 134);
   /* background: radial-gradient(
       circle at center center,
       rgb(250, 163, 64),
