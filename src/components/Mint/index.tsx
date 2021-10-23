@@ -329,49 +329,56 @@ const Mint = () => {
             </p>
           )}
           <MintContainer>
-            <div className={`${loading && "d-none"} input_container col-12`}>
-              <input
-                type="number"
-                min="1"
-                max={maxPerAddress - minted}
-                placeholder={amount.toString()}
-                onChange={(e) => setAmount(Number(e.target.value))}
-                className="input_amount"
-              />
-            </div>
-            <div
-              className={`${!loading && "d-none"} input_container col-12 mt-3`}
-            >
-              <h5 className="minted_amount">
-                Minted: {txMinted} of {amount}
-              </h5>
-            </div>
-            <br />
             {!wallet.connected ? (
               <ConnectButton>CONNECT</ConnectButton>
             ) : (
-              <MintButton
-                disabled={isSoldOut || loading || !isActive}
-                onClick={onMint}
-                variant="contained"
-              >
-                {isSoldOut ? (
-                  "SOLD OUT"
-                ) : isActive ? (
-                  loading ? (
-                    <CircularProgress />
-                  ) : (
-                    "mint"
-                  )
-                ) : (
-                  <Countdown
-                    date={startDate}
-                    onMount={({ completed }) => completed && setIsActive(true)}
-                    onComplete={() => setIsActive(true)}
-                    renderer={renderCounter}
+              <div className="">
+                <div
+                  className={`${loading && "d-none"} input_container col-12`}
+                >
+                  <input
+                    type="number"
+                    min="1"
+                    max={maxPerAddress - minted}
+                    placeholder={amount.toString()}
+                    onChange={(e) => setAmount(Number(e.target.value))}
+                    className="input_amount"
                   />
-                )}
-              </MintButton>
+                </div>
+                <div
+                  className={`${
+                    !loading && "d-none"
+                  } input_container col-12 mt-3`}
+                >
+                  <h5 className="minted_amount">
+                    Minted: {txMinted} of {amount}
+                  </h5>
+                </div>
+                <MintButton
+                  disabled={isSoldOut || loading || !isActive}
+                  onClick={onMint}
+                  variant="contained"
+                >
+                  {isSoldOut ? (
+                    "SOLD OUT"
+                  ) : isActive ? (
+                    loading ? (
+                      <CircularProgress />
+                    ) : (
+                      "mint"
+                    )
+                  ) : (
+                    <Countdown
+                      date={startDate}
+                      onMount={({ completed }) =>
+                        completed && setIsActive(true)
+                      }
+                      onComplete={() => setIsActive(true)}
+                      renderer={renderCounter}
+                    />
+                  )}
+                </MintButton>
+              </div>
             )}
           </MintContainer>
           {wallet.connected && (
