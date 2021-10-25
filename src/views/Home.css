@@ -31,7 +31,7 @@
 }
 
 .page_box {
-  /* background: linear-gradient(rgb(75, 53, 134), rgb(250, 163, 64)); */
+  /* background: linear-gradient(rgba(75, 53, 134, 0.7), rgba(250, 163, 64, 0.7)); */
   /* border: 2px solid rgb(250, 163, 64); */
   background: linear-gradient(rgba(75, 53, 134, 0.7), rgba(35, 141, 67, 0.5));
   backdrop-filter: blur(50px);

@@ -12,10 +12,10 @@ import discord from "../../assets/images/discord.svg";
 const Header = (props) => {
   return (
     <nav className="col-12 d-flex justify-content-center">
-      <div className="col-6 d-flex flex-column align-items-center justify-content-center">
+      <div className="col-12 col-md-8 col-lg-6 d-flex flex-column align-items-center justify-content-center">
         <img src={logo2} className="nav_logo" alt="logo" />
 
-        <div className="navbox">
+        <div className="navbox d-flex flex-column col-12">
           <h1 className="app_title">PESKY PUMPKINS</h1>
 
           <div className="social-links">

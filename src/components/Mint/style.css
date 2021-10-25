@@ -1,19 +1,21 @@
 .mint_box {
-  background: linear-gradient(rgb(75, 53, 134), rgb(250, 163, 64));
-  background-color: black;
+  /* background: linear-gradient(rgb(250, 163, 64), rgb(75, 53, 134)); */
+  /* background-color: rgb(75, 53, 134); */
+  background-color: rgba(46, 33, 83, 0.7);
   /* background: radial-gradient(
-    circle at center center,
-    rgb(250, 163, 64),
-    rgb(75, 53, 134) 110%
-  ); */
-  border: 2px solid rgb(250, 163, 64);
+      circle at center center,
+      rgb(250, 163, 64),
+      rgb(75, 53, 134) 110%
+    ); */
+  /* border: 2px solid rgb(250, 163, 64); */
+  border: 2px solid rgb(64, 250, 120);
+  color: rgb(64, 250, 120);
   border-radius: 15px;
+  backdrop-filter: blur(50px);
   box-shadow: 0px 0px 20px black;
   overflow: hidden;
-  padding: 50px 20px;
-  min-height: 250px;
-  /* height: 100%; */
-  /* margin: auto auto; */
+  padding: 40px 0px;
+  /* min-height: 250px; */
 }
 
 .mint_container {
@@ -39,12 +41,12 @@
 }
 
 .stat_header {
-  font-size: 2rem;
+  font-size: 2.5rem;
   border-bottom: 1px solid rgb(64, 250, 120);
 }
 
 .stat {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .collection_image {
@@ -54,6 +56,20 @@
   border-radius: 15px;
   box-shadow: 0px 0px 20px black;
   margin-bottom: 40px;
+}
+
+@media screen and (max-width: 1250px) {
+  .input_amount {
+    font-size: 1.3rem;
+  }
+
+  .stat_header {
+    font-size: 2rem;
+  }
+
+  .stat {
+    font-size: 1.5rem;
+  }
 }
 
 /* .MuiButton-containedPrimary,

@@ -16,7 +16,7 @@ export default function About(props) {
 
   return (
     <div className="about_container col-12 d-flex justify-content-center">
-      <div className="page_box col-12 col-md-8">
+      <div className="page_box col-12 col-md-10 col-lg-8">
         {/* <div className="col-12 col-md-8 offset-md-2">
           <img className="img-fluid p-3" src={logo} alt="" />
         </div> */}
@@ -37,7 +37,7 @@ export default function About(props) {
 
         {/* <img className="img-fluid teepee_gif" src={teepee_gif} alt="" /> */}
 
-        <div className="d-flex flex-row flex-wrap col-12 justify-content-center mt-5 pt-5">
+        <div className="d-flex flex-row flex-wrap col-12 justify-content-center mt-5">
           <p className="about_text col-12 col-lg-5">
             Pesky Pumpkins will be 1SOL per mint and each pumpkin will have its
             own unique background, head, minion, clothes, magic stick, scarf,

@@ -55,7 +55,10 @@ const ConnectButton = styled(WalletDialogButton)`
   z-index: 3 !important;
 `;
 const CounterText = styled.span``; // add your styles here
-const MintContainer = styled.div``; // add your styles here
+const MintContainer = styled.div`
+  padding-top: 50px;
+  padding-bottom: 50px;
+`; // add your styles here
 const MintButton = styled(Button)`
   align-items: center !important;
   background-color: rgb(64, 250, 120) !important;
@@ -314,15 +317,8 @@ const Mint = () => {
 
   return (
     <div className="mint_container col-12 d-flex flex-column align-items-center">
-      {/* <div className="col-8 col-md-5 col-lg-2">
-        <img
-          className="img-fluid collection_image"
-          src={collection_image}
-          alt="collection_image"
-        />
-      </div> */}
-      <div className="col-12 col-md-10 col-lg-8 navbox mintbox">
-        <div className="minting_stats d-flex flex-row flex-wrap col-10 offset-1 col-md-12 offset-md-0 justify-content-around align-items-center h-100">
+      <div className="col-12 col-md-10 col-lg-8 mint_box d-flex justify-content-center">
+        <div className="minting_stats d-flex flex-row flex-wrap col-12 col-lg-10 justify-content-around align-items-center h-100">
           {wallet.connected && (
             <p>
               <span className="stat_header">Mint Price</span>
