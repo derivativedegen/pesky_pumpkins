@@ -1,7 +1,7 @@
 .navbox {
   /* background: linear-gradient(rgb(250, 163, 64), rgb(75, 53, 134)); */
   /* background-color: rgb(75, 53, 134); */
-  background-color: rgba(46, 33, 83, 0.6);
+  background-color: rgba(46, 33, 83, 0.7);
   /* background: radial-gradient(
       circle at center center,
       rgb(250, 163, 64),
@@ -162,6 +162,9 @@
   }
   .social-links {
     display: none;
+  }
+  .mintbox {
+    padding: 50px 20px;
   }
   .menu-icon {
     display: block;

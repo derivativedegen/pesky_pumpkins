@@ -37,9 +37,10 @@ import collection_image from "../../assets/images/collection_image.png";
 
 const ConnectButton = styled(WalletDialogButton)`
   align-items: center !important;
+  background-color: rgb(64, 250, 120) !important;
   border: 2px solid rgb(75, 53, 134) !important;
   border-radius: 15px !important;
-  box-shadow: 0px 0px 15px 2px #000000 !important;
+  box-shadow: 0px 0px 10px 2px rgb(64, 250, 120) !important;
   color: rgb(75, 53, 134) !important;
   cursor: pointer !important;
   font-size: 2rem !important;
@@ -49,18 +50,19 @@ const ConnectButton = styled(WalletDialogButton)`
   margin: 5px !important;
   overflow: hidden !important;
   padding: 0 50px !important;
+  padding-top: 3px !important;
   transition: border 0.185s ease-out !important;
   z-index: 3 !important;
-  background-color: rgb(64, 250, 120) !important;
 `;
 const CounterText = styled.span``; // add your styles here
 const MintContainer = styled.div``; // add your styles here
 const MintButton = styled(Button)`
   align-items: center !important;
-  border: 2px solid rgb(64, 250, 120) !important;
+  background-color: rgb(64, 250, 120) !important;
+  border: 2px solid rgb(75, 53, 134) !important;
   border-radius: 15px !important;
-  box-shadow: 0px 0px 5px 2px #000000 !important;
-  color: rgb(64, 250, 120) !important;
+  box-shadow: 0px 0px 10px 2px rgb(64, 250, 120) !important;
+  color: rgb(75, 53, 134) !important;
   cursor: pointer !important;
   font-size: 2rem !important;
   font-weight: 700 !important;
@@ -69,9 +71,9 @@ const MintButton = styled(Button)`
   margin: 5px !important;
   overflow: hidden !important;
   padding: 0 50px !important;
+  padding-top: 3px !important;
   transition: border 0.185s ease-out !important;
   z-index: 3 !important;
-  background-color: rgb(75, 53, 134) !important;
 `; // add your styles here
 
 const treasury = new anchor.web3.PublicKey(

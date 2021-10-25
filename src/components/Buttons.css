@@ -43,7 +43,8 @@ rgb(80, 235, 188)
 }
 
 .btn-accent {
-  background-color: rgb(80, 235, 188);
+  /* background-color: rgb(80, 235, 188); */
+  background-color: rgb(64, 250, 120);
   color: black;
 }
 

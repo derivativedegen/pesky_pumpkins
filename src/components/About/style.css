@@ -5,17 +5,25 @@
 
 .about_text {
   color: white;
-  font-size: 1.15rem;
-  padding: 0px 150px;
+  font-size: 1.55rem;
+  font-family: "alt";
+}
+.text_padding {
+  padding: 0px 100px;
 }
 
 .about_heading {
-  color: white;
+  color: rgb(64, 250, 120);
   font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 5px;
 }
 
-.nfteepee_example {
+.nft_example {
   height: 300px;
+  border-radius: 15px;
+  border: 2px solid rgb(64, 250, 120);
+  box-shadow: 0px 0px 20px black;
 }
 
 @media screen and (max-width: 1250px) {
