@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { setCurrentPage } from "../../redux/app";
 import "./style.css";
 import { contributors } from "../../constants/contributors";
+import { honoraries } from "../../constants/honoraries";
 
 export default function Team(props) {
   const dispatch = useDispatch();
@@ -13,11 +14,19 @@ export default function Team(props) {
 
   return (
     <div className="team_container col-12 d-flex justify-content-center">
-      <div className="col-10 mt-5">
-        {/* <h1 style={{ color: "white", fontSize: "3rem" }}>Team</h1> */}
+      <div className="col-12 col-md-10 col-lg-8 mt-5 page_box">
+        <h1 className="team_heading">Our Honorary Family</h1>
+
+        <hr
+          style={{
+            color: "white",
+            width: "100%",
+            justifySelf: "center",
+          }}
+        />
 
         <div className="team-members">
-          {contributors.map((member, i) => {
+          {honoraries.map((member, i) => {
             return (
               <div className="member_card" key={i}>
                 <a href={member.link} target="_blank">

@@ -31,12 +31,12 @@
 }
 
 .page_box {
-  /* background: linear-gradient(rgba(75, 53, 134, 0.7), rgba(250, 163, 64, 0.7)); */
+  background: linear-gradient(rgba(75, 53, 134, 0.7), rgba(250, 163, 64, 0.7));
   /* border: 2px solid rgb(250, 163, 64); */
-  background: linear-gradient(
+  /* background: linear-gradient(
     rgba(75, 53, 134, 0.7),
     rgba(35, 141, 67, 0.5) 80%
-  );
+  ); */
   backdrop-filter: blur(50px);
   border: 2px solid rgb(64, 250, 120);
   border-radius: 15px;
