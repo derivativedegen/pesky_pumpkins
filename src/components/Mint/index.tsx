@@ -37,10 +37,10 @@ import collection_image from "../../assets/images/collection_image.png";
 
 const ConnectButton = styled(WalletDialogButton)`
   align-items: center !important;
-  border: 2px solid rgb(250, 163, 64) !important;
+  border: 2px solid rgb(75, 53, 134) !important;
   border-radius: 15px !important;
-  box-shadow: 0px 0px 5px 2px #000000 !important;
-  color: rgb(250, 163, 64) !important;
+  box-shadow: 0px 0px 15px 2px #000000 !important;
+  color: rgb(75, 53, 134) !important;
   cursor: pointer !important;
   font-size: 2rem !important;
   font-weight: 700 !important;
@@ -51,16 +51,16 @@ const ConnectButton = styled(WalletDialogButton)`
   padding: 0 50px !important;
   transition: border 0.185s ease-out !important;
   z-index: 3 !important;
-  background-color: rgb(75, 53, 134) !important;
+  background-color: rgb(64, 250, 120) !important;
 `;
 const CounterText = styled.span``; // add your styles here
 const MintContainer = styled.div``; // add your styles here
 const MintButton = styled(Button)`
   align-items: center !important;
-  border: 2px solid rgb(250, 163, 64) !important;
+  border: 2px solid rgb(64, 250, 120) !important;
   border-radius: 15px !important;
   box-shadow: 0px 0px 5px 2px #000000 !important;
-  color: rgb(250, 163, 64) !important;
+  color: rgb(64, 250, 120) !important;
   cursor: pointer !important;
   font-size: 2rem !important;
   font-weight: 700 !important;
@@ -311,7 +311,7 @@ const Mint = () => {
   }, []);
 
   return (
-    <div className="col-12 h-100 d-flex flex-column align-items-center">
+    <div className="mint_container col-12 d-flex flex-column align-items-center">
       {/* <div className="col-8 col-md-5 col-lg-2">
         <img
           className="img-fluid collection_image"
@@ -319,7 +319,7 @@ const Mint = () => {
           alt="collection_image"
         />
       </div> */}
-      <div className="col-12 col-md-10 col-lg-6 navbox mintbox">
+      <div className="col-12 col-md-10 col-lg-8 navbox mintbox">
         <div className="minting_stats d-flex flex-row flex-wrap col-10 offset-1 col-md-12 offset-md-0 justify-content-around align-items-center h-100">
           {wallet.connected && (
             <p>

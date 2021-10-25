@@ -27,17 +27,18 @@ export default function Home(props) {
           <Navigation />
         </div>
         <div className="page_content col-12">
-          <Switch>
-            <Redirect exact from="/" to="/mint" />
-            <Route exact path="/mint" component={Mint} />
+          {/* <Switch>
+            <Route exact path="/" component={Mint} />
             <Route path="/about" component={About} />
             <Route path="/roadmap" component={Roadmap} />
             <Route path="/team" component={Team} />
             <Route path="/tools" component={Tools} />
             <Route path="/terms" component={Terms} />
-            {/* <Route path="/raid" component={Raid} /> */}
-            {/* <Route path="/collection" component={Collection} /> */}
-          </Switch>
+            <Route path="/raid" component={Raid} />
+            <Route path="/collection" component={Collection} />
+          </Switch> */}
+          <Mint />
+          <About />
         </div>
       </div>
     </Router>

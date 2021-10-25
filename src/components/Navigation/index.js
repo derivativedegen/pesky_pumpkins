@@ -5,7 +5,7 @@ import "./style.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { links } from "../../constants/constants";
-import logo2 from "../../assets/images/logo2.png";
+import logo2 from "../../assets/images/logo2.gif";
 import twitter from "../../assets/images/twitter.svg";
 import discord from "../../assets/images/discord.svg";
 

@@ -1,13 +1,15 @@
 .navbox {
   /* background: linear-gradient(rgb(250, 163, 64), rgb(75, 53, 134)); */
   /* background-color: rgb(75, 53, 134); */
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(46, 33, 83, 0.6);
   /* background: radial-gradient(
       circle at center center,
       rgb(250, 163, 64),
       rgb(75, 53, 134) 110%
     ); */
-  border: 2px solid rgb(250, 163, 64);
+  /* border: 2px solid rgb(250, 163, 64); */
+  border: 2px solid rgb(64, 250, 120);
+  color: rgb(64, 250, 120);
   border-radius: 15px;
   backdrop-filter: blur(50px);
   box-shadow: 0px 0px 20px black;
@@ -45,7 +47,7 @@
 }
 
 .app_title {
-  color: rgb(250, 163, 64);
+  color: rgb(64, 250, 120);
   font-size: 3.5rem;
   /* padding-top: 30px; */
   letter-spacing: 5px;

@@ -16,15 +16,20 @@
   /* margin: auto auto; */
 }
 
+.mint_container {
+  margin-bottom: 5%;
+}
+
 .input_amount {
   width: 100%;
+  min-width: 250px;
   text-align: center;
   border-radius: 15px;
   border: 2px solid black;
   box-shadow: inset 0px 0px 5px black;
-  background-color: rgb(250, 163, 64);
-  color: black;
-  font-size: 1.7rem;
+  background-color: rgb(64, 250, 120);
+  color: rgb(75, 53, 134);
+  font-size: 1.8rem;
   margin-bottom: 20px;
 }
 
@@ -35,7 +40,7 @@
 
 .stat_header {
   font-size: 2rem;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid rgb(64, 250, 120);
 }
 
 .stat {
