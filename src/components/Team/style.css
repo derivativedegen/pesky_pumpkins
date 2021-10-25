@@ -1,5 +1,6 @@
 .team_container {
   /* height: 100%; */
+  margin-bottom: 5%;
 }
 
 .team-members {
@@ -57,6 +58,7 @@
 
 .member_card:hover {
   box-shadow: 0px 0px 20px rgb(64, 250, 120);
+  border: 2px solid rgb(64, 250, 120);
 }
 
 .member_card:active {
