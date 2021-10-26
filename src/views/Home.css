@@ -17,7 +17,8 @@
 }
 
 .font_alt {
-  font-family: "Courier New", Courier, monospace;
+  /* font-family: "Courier New", Courier, monospace; */
+  font-family: "alt";
 }
 
 .navigation {
@@ -31,7 +32,7 @@
 }
 
 .page_box {
-  background: linear-gradient(rgba(75, 53, 134, 0.7), rgba(250, 163, 64, 0.7));
+  background: linear-gradient(rgba(75, 53, 134, 0.7), rgba(0, 0, 0, 0.7));
   /* border: 2px solid rgb(250, 163, 64); */
   /* background: linear-gradient(
     rgba(75, 53, 134, 0.7),

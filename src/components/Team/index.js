@@ -14,7 +14,7 @@ export default function Team(props) {
 
   return (
     <div className="team_container col-12 d-flex justify-content-center">
-      <div className="col-12 col-md-10 col-lg-8 page_box">
+      <div className="col-12 col-md-10 col-lg-8 page_box reverse">
         <h1 className="team_heading">Our Honorary Family</h1>
 
         <hr

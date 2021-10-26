@@ -7,33 +7,10 @@ import redxbt from "../assets/images/honoraries/redxbt.png";
 import trader1sz from "../assets/images/honoraries/trader1sz.png";
 import tradermagus from "../assets/images/honoraries/tradermagus.png";
 import trashpandaznft from "../assets/images/honoraries/trashpandaznft.png";
+import shahh from "../assets/images/honoraries/shahh.png";
+import cryptojellenl from "../assets/images/honoraries/cryptojellenl.png";
 
 export const honoraries = [
-  {
-    name: "BTC Charlie",
-    image: btc_charlie,
-    link: `https://twitter.com/btc_charlie`,
-  },
-  {
-    name: "Cold Blooded Shiller",
-    image: coldbloodshill,
-    link: "https://twitter.com/coldbloodshill",
-  },
-  {
-    name: "CryptoUB",
-    image: cryptoub,
-    link: "https://twitter.com/cryptoub",
-  },
-  {
-    name: "Keyboard Monkey",
-    image: keyboardmonkey3,
-    link: "https://twitter.com/keyboardmonkey3",
-  },
-  {
-    name: "Maren",
-    image: marenaltman,
-    link: "https://twitter.com/marenaltman",
-  },
   {
     name: "RedXBT",
     image: redxbt,
@@ -45,9 +22,44 @@ export const honoraries = [
     link: "https://twitter.com/trader1sz",
   },
   {
+    name: "Maren",
+    image: marenaltman,
+    link: "https://twitter.com/marenaltman",
+  },
+  {
+    name: "CryptoUB",
+    image: cryptoub,
+    link: "https://twitter.com/cryptoub",
+  },
+  {
+    name: "BTC Charlie",
+    image: btc_charlie,
+    link: `https://twitter.com/btc_charlie`,
+  },
+  {
+    name: "Cold Blooded Shiller",
+    image: coldbloodshill,
+    link: "https://twitter.com/coldbloodshill",
+  },
+  {
+    name: "Keyboard Monkey",
+    image: keyboardmonkey3,
+    link: "https://twitter.com/keyboardmonkey3",
+  },
+  {
     name: "TraderMagus",
     image: tradermagus,
     link: "https://twitter.com/tradermagus",
+  },
+  {
+    name: "CryptoJelleNL",
+    image: cryptojellenl,
+    link: "https://twitter.com/CryptoJelleNL",
+  },
+  {
+    name: "Shahh",
+    image: shahh,
+    link: "https://twitter.com/shahh",
   },
   {
     name: "Trash Pandaz",

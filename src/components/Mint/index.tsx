@@ -54,7 +54,9 @@ const ConnectButton = styled(WalletDialogButton)`
   transition: border 0.185s ease-out !important;
   z-index: 3 !important;
 `;
-const CounterText = styled.span``; // add your styles here
+const CounterText = styled.span`
+  font-size: 1.5rem;
+`; // add your styles here
 const MintContainer = styled.div`
   padding-top: 50px;
   padding-bottom: 50px;
@@ -97,8 +99,8 @@ const projectShortName = process.env.REACT_APP_PROJECT_NAME_SHORT;
 const projectFullName = process.env.REACT_APP_PROJECT_NAME_FULL;
 const maxPerAddress = Number(process.env.REACT_APP_MAX_PER_ADDRESS);
 
-// const utcLaunch = 1635548400000; // 7pm EST Oct 29 - LAUNCH
-const utcLaunch = 1633943598000; // 7pm EST Oct 29 - LAUNCH
+const utcLaunch = 1635548400000; // 7pm EST Oct 29 - LAUNCH
+// const utcLaunch = 1633943598000; // test
 const launchDate = new Date(utcLaunch);
 
 const Mint = () => {
@@ -317,7 +319,7 @@ const Mint = () => {
 
   return (
     <div className="mint_container col-12 d-flex flex-column align-items-center">
-      <div className="col-12 col-md-10 col-lg-8 mint_box d-flex justify-content-center">
+      <div className="col-12 col-md-10 col-lg-8 mint_box d-flex flex-column align-items-center justify-content-center">
         <div className="minting_stats d-flex flex-row flex-wrap col-12 col-lg-10 justify-content-around align-items-center h-100">
           {wallet.connected && (
             <p>
@@ -422,7 +424,7 @@ interface AlertState {
 const renderCounter = ({ days, hours, minutes, seconds, completed }: any) => {
   return (
     <CounterText>
-      {hours} hours, {minutes} minutes, {seconds} seconds
+      {days} days, {hours} hours, {minutes} minutes, {seconds} seconds
     </CounterText>
   );
 };

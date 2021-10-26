@@ -16,6 +16,7 @@ import Terms from "../components/Terms";
 import Roadmap from "../components/Roadmap";
 import Team from "../components/Team";
 import Tools from "../components/Tools";
+import FAQ from "../components/FAQ";
 
 export default function Home(props) {
   const colorMode = useSelector(selectColorMode);
@@ -40,6 +41,7 @@ export default function Home(props) {
           <Mint />
           <About />
           <Team />
+          <FAQ />
         </div>
       </div>
     </Router>

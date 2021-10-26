@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setCurrentPage } from "../../redux/app";
-import logo from "../../assets/images/logo.png";
-import teepee_gif from "../../assets/images/teepee_gif.gif";
 import "./style.css";
-import example from "../../assets/images/logo.png";
+import logo1 from "../../assets/images/logo1.png";
+import example1 from "../../assets/images/example1.png";
+import example2 from "../../assets/images/example2.gif";
 import { links } from "../../constants/constants";
 
 export default function About(props) {
@@ -28,23 +28,45 @@ export default function About(props) {
             justifySelf: "center",
           }}
         />
-        <p className="about_text text_padding">
-          Carving pumpkins is a tedious, trying task that usually just ends up
-          in disappointment. Instead of mangling a perfectly good pumpkin and
-          embarrassing yourself by displaying it on your porch, mint one of our
-          6666 unique Jack-o-Lanterns!
-        </p>
 
-        {/* <img className="img-fluid teepee_gif" src={teepee_gif} alt="" /> */}
+        <div className="d-flex flex-row flex-wrap col-12 justify-content-center align-items-center mt-5">
+          <div className="col-12 col-lg-3">
+            <img
+              src={logo1}
+              alt="nft_example"
+              className="img-fluid"
+              style={{ maxHeight: "300px" }}
+            />
+          </div>
+          <p className="about_text col-12 col-lg-7">
+            Carving pumpkins is a tedious, trying task that usually ends up in
+            disappointment. Luckily for you, we have perfected the art of the
+            carve and added a bit of Halloween attitude. Pesky Pumpkins are a
+            collection of 6666 unique pumpkins on the Solana Network. Each
+            Pumpkin will have its own unique background, head, clothing, scarf,
+            satchel, minion, and rock to stand on.
+          </p>
+        </div>
 
-        <div className="d-flex flex-row flex-wrap col-12 justify-content-center mt-5">
+        {/* <img className="img-fluid" src={example2} alt="" /> */}
+
+        <div className="d-flex flex-row flex-wrap col-12 justify-content-center align-items-center mt-5">
           <p className="about_text col-12 col-lg-5">
             Pesky Pumpkins will be 1SOL per mint and each pumpkin will have its
             own unique background, head, minion, clothes, magic stick, scarf,
             satchel, and rock to stand on.
+            <br />
+            Check out our{" "}
+            <span
+              className="about_text"
+              style={{ textDecoration: "underline", cursor: "pointer" }}
+              onClick={() => window.location.replace("/#faq")}
+            >
+              FAQ.
+            </span>
           </p>
           <div className="col-12 col-lg-5">
-            <img src={example} alt="nft_example" className="nft_example" />
+            <img src={example2} alt="nft_example" className="nft_example" />
           </div>
         </div>
 

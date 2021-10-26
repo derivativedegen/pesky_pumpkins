@@ -5,7 +5,7 @@ import "./style.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { links } from "../../constants/constants";
-import logo2 from "../../assets/images/logo2.gif";
+import logogif from "../../assets/images/logo_gif.gif";
 import twitter from "../../assets/images/twitter.svg";
 import discord from "../../assets/images/discord.svg";
 
@@ -13,7 +13,7 @@ const Header = (props) => {
   return (
     <nav className="col-12 d-flex justify-content-center">
       <div className="col-12 col-md-8 col-lg-6 d-flex flex-column align-items-center justify-content-center">
-        <img src={logo2} className="nav_logo" alt="logo" />
+        <img src={logogif} className="nav_logo" alt="logo" />
 
         <div className="navbox d-flex flex-column col-12">
           <h1 className="app_title">PESKY PUMPKINS</h1>
