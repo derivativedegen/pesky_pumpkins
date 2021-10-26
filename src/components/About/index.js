@@ -39,12 +39,9 @@ export default function About(props) {
             />
           </div>
           <p className="about_text col-12 col-lg-7">
-            Carving pumpkins is a tedious, trying task that usually ends up in
-            disappointment. Luckily for you, we have perfected the art of the
-            carve and added a bit of Halloween attitude. Pesky Pumpkins are a
-            collection of 6666 unique pumpkins on the Solana Network. Each
-            Pumpkin will have its own unique background, head, clothing, scarf,
-            satchel, minion, and rock to stand on.
+            Carving pumpkins is a tedious, trying task that usually just ends up
+            in disappointment. Instead of disrespecting a perfectly good
+            pumpkin, just mint one of our perfectly carved Pesky Pumpkins!
           </p>
         </div>
 
@@ -52,18 +49,19 @@ export default function About(props) {
 
         <div className="d-flex flex-row flex-wrap col-12 justify-content-center align-items-center mt-5">
           <p className="about_text col-12 col-lg-5">
-            Pesky Pumpkins will be 1SOL per mint and each pumpkin will have its
-            own unique background, head, minion, clothes, magic stick, scarf,
-            satchel, and rock to stand on.
+            There will be 6666 unique Pumpkins and each one will cost 1 SOL.
+            Each Pumpkin will have its own unique background, head, clothing,
+            scarf, satchel, minion, and rock to stand on.
             <br />
-            Check out our{" "}
+            Click{" "}
             <span
               className="about_text"
               style={{ textDecoration: "underline", cursor: "pointer" }}
               onClick={() => window.location.replace("/#faq")}
             >
-              FAQ.
-            </span>
+              here
+            </span>{" "}
+            to browse our FAQ.
           </p>
           <div className="col-12 col-lg-5">
             <img src={example2} alt="nft_example" className="nft_example" />
