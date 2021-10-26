@@ -385,7 +385,8 @@ const Mint = () => {
             <p>
               <span className="stat_header">Remaining</span>
               <br />
-              <span className="stat">{itemsLeft.toLocaleString()}</span>
+              {/* <span className="stat">{itemsLeft.toLocaleString()}</span> */}
+              <span className="stat">6,666</span>
             </p>
           )}
         </div>

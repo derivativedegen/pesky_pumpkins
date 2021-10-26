@@ -29,7 +29,7 @@ export default function About(props) {
           }}
         />
 
-        <div className="d-flex flex-row flex-wrap col-12 justify-content-center align-items-center mt-5">
+        <div className="d-flex flex-row flex-wrap col-12 justify-content-center align-items-center mt-3">
           <div className="col-12 col-lg-3">
             <img
               src={logo1}
@@ -47,7 +47,7 @@ export default function About(props) {
 
         {/* <img className="img-fluid" src={example2} alt="" /> */}
 
-        <div className="d-flex flex-row flex-wrap col-12 justify-content-center align-items-center mt-5">
+        <div className="d-flex flex-row flex-wrap col-12 justify-content-center align-items-center mt-3">
           <p className="about_text col-12 col-lg-5">
             There will be 6666 unique Pumpkins and each one will cost 1 SOL.
             Each Pumpkin will have its own unique background, head, clothing,
