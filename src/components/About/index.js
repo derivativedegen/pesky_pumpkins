@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setCurrentPage } from "../../redux/app";
-import logo from "../../assets/images/logo.png";
-import teepee_gif from "../../assets/images/teepee_gif.gif";
 import "./style.css";
-import example from "../../assets/images/nfteepee4.png";
+import logo1 from "../../assets/images/logo1.png";
+import example1 from "../../assets/images/example1.png";
+import example2 from "../../assets/images/example2.gif";
 import { links } from "../../constants/constants";
 
 export default function About(props) {
@@ -16,11 +16,11 @@ export default function About(props) {
 
   return (
     <div className="about_container col-12 d-flex justify-content-center">
-      <div className="page_box col-12 col-md-8">
+      <div className="page_box col-12 col-md-10 col-lg-8">
         {/* <div className="col-12 col-md-8 offset-md-2">
           <img className="img-fluid p-3" src={logo} alt="" />
         </div> */}
-        <h1 className="about_heading">WIPE YOUR WAY TO WINNINGS</h1>
+        <h1 className="about_heading">Happy Halloween, Friends!</h1>
         <hr
           style={{
             color: "white",
@@ -28,34 +28,59 @@ export default function About(props) {
             justifySelf: "center",
           }}
         />
-        <p className="about_text">
-          The NFTeePee Club is a collective of degenerate memesters thats been
-          rollin deep with the crypto community for years. We decided to give
-          back to the community that paid high prices for toilet paper on the
-          black market or on your Amerzon-Prime membership.
-        </p>
 
-        {/* <img className="img-fluid teepee_gif" src={teepee_gif} alt="" /> */}
-        <img
-          src={example}
-          alt="nfteepee_example"
-          className="nfteepee_example"
-        />
+        <div className="d-flex flex-row flex-wrap col-12 justify-content-center align-items-center mt-5">
+          <div className="col-12 col-lg-3">
+            <img
+              src={logo1}
+              alt="nft_example"
+              className="img-fluid"
+              style={{ maxHeight: "300px" }}
+            />
+          </div>
+          <p className="about_text col-12 col-lg-7">
+            Carving pumpkins is a tedious, trying task that usually just ends up
+            in disappointment. Instead of disrespecting a perfectly good
+            pumpkin, just mint one of our perfectly carved Pesky Pumpkins!
+          </p>
+        </div>
 
-        <p className="about_text">
-          Owning one of these 7777 TP rolls will have iconic value that relates
-          to the shit show of the year 2020. Each teepee roll will have their
-          own special characters and an array of special backgrounds. Take our
-          word for it, you'll be minting some rare shit. Stocking up and
-          hoarding these NFTeePees entitles holders to receive a ticket to wipe
-          your Ass-ets for life! You might be able to buy a house or warehouse
-          to store us anywhere you'd like...Ledgers are kinda boring tbh.
-        </p>
+        {/* <img className="img-fluid" src={example2} alt="" /> */}
 
-        <p className="about_text">
+        <div className="d-flex flex-row flex-wrap col-12 justify-content-center align-items-center mt-5">
+          <p className="about_text col-12 col-lg-5">
+            There will be 6666 unique Pumpkins and each one will cost 1 SOL.
+            Each Pumpkin will have its own unique background, head, clothing,
+            scarf, satchel, minion, and rock to stand on.
+            <br />
+            Click{" "}
+            <span
+              className="about_text"
+              style={{ textDecoration: "underline", cursor: "pointer" }}
+              onClick={() => window.location.replace("/#faq")}
+            >
+              here
+            </span>{" "}
+            to browse our FAQ.
+          </p>
+          <div className="col-12 col-lg-5">
+            <img src={example2} alt="nft_example" className="nft_example" />
+          </div>
+        </div>
+
+        {/* <p className="about_text">
           When your favorite warehouse store is out of toilet paper...
-        </p>
-        <h2 style={{ color: "white", fontSize: "2rem" }}>WE GOT YOU!</h2>
+        </p> */}
+        <h2
+          style={{
+            color: "rgb(64, 250, 120)",
+            fontSize: "2rem",
+            marginTop: "4rem",
+            letterSpacing: "3px",
+          }}
+        >
+          ENTER IF YOU DARE!
+        </h2>
         <div className="d-flex col-12 flex-wrap justify-content-center">
           <a href={links.discord.url} target="_blank">
             <button className="btn-button btn-accent btn-large">Discord</button>

@@ -7,11 +7,11 @@ export const contractInfo = {
 
 export const links = {
   twitter: {
-    url: "https://twitter.com/NFTeePeeClub",
+    url: "https://twitter.com/PeskyPumpkinNFT",
     text: "Twitter",
   },
   discord: {
-    url: "https://discord.gg/QAuZWqGHW4",
+    url: "https://discord.gg/YYxraSqEV8",
     text: "Discord",
   },
   opensea: {
