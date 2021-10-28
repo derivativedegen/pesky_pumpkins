@@ -9,6 +9,9 @@ import tradermagus from "../assets/images/honoraries/tradermagus.png";
 import trashpandaznft from "../assets/images/honoraries/trashpandaznft.png";
 import shahh from "../assets/images/honoraries/shahh.png";
 import cryptojellenl from "../assets/images/honoraries/cryptojellenl.png";
+import jimtalbot from "../assets/images/honoraries/jimtalbot.png";
+import postyxbt from "../assets/images/honoraries/postyxbt.png";
+import altcoingordon from "../assets/images/honoraries/altcoingordon.png";
 
 export const honoraries = [
   {
@@ -60,6 +63,21 @@ export const honoraries = [
     name: "Shahh",
     image: shahh,
     link: "https://twitter.com/shahh",
+  },
+  {
+    name: "jim",
+    image: jimtalbot,
+    link: "https://twitter.com/jimtalbot",
+  },
+  {
+    name: "Posty",
+    image: postyxbt,
+    link: "https://twitter.com/postyxbt",
+  },
+  {
+    name: "Altcoin Gordon",
+    image: altcoingordon,
+    link: "https://twitter.com/altcoingordon",
   },
   {
     name: "Trash Pandaz",
