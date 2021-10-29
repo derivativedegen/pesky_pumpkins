@@ -140,6 +140,9 @@ const Mint = () => {
 
   // Mint Function
   const onMint = async () => {
+    alert("Minting will resume shortly. Join our discord for up to date info.");
+    return;
+
     if (Date.now() < utcLaunch) {
       alert(`${projectFullName} hasn't launched yet!`);
       return;
@@ -180,92 +183,92 @@ const Mint = () => {
     dispatch(setLoading(true));
     setTxMinted(0);
 
-    for (let i = 1; i <= itemsRequested; i++) {
-      try {
-        if (wallet.connected && candyMachine?.program && wallet.publicKey) {
-          const mintTxId = await mintOneToken(
-            candyMachine,
-            config,
-            wallet.publicKey,
-            treasury
-          );
-          const status = await awaitTransactionSignatureConfirmation(
-            mintTxId,
-            txTimeout,
-            connection,
-            "singleGossip",
-            false
-          );
-          if (!status?.err) {
-            setAlertState({
-              open: true,
-              message: "Congratulations! Mint succeeded!",
-              severity: "success",
-            });
+    // for (let i = 1; i <= itemsRequested; i++) {
+    //   try {
+    //     if (wallet.connected && candyMachine?.program && wallet.publicKey) {
+    //       const mintTxId = await mintOneToken(
+    //         candyMachine,
+    //         config,
+    //         wallet.publicKey,
+    //         treasury
+    //       );
+    //       const status = await awaitTransactionSignatureConfirmation(
+    //         mintTxId,
+    //         txTimeout,
+    //         connection,
+    //         "singleGossip",
+    //         false
+    //       );
+    //       if (!status?.err) {
+    //         setAlertState({
+    //           open: true,
+    //           message: "Congratulations! Mint succeeded!",
+    //           severity: "success",
+    //         });
 
-            setTxMinted(i);
+    //         setTxMinted(i);
 
-            const addressBalance = localStorage.getItem(localString);
-            const addOne = Number(addressBalance) + 1;
-            setMinted(addOne);
-            localStorage.setItem(localString, addOne.toString());
+    //         const addressBalance = localStorage.getItem(localString);
+    //         const addOne = Number(addressBalance) + 1;
+    //         setMinted(addOne);
+    //         localStorage.setItem(localString, addOne.toString());
 
-            const anchorWallet = {
-              publicKey: wallet.publicKey,
-              signAllTransactions: wallet.signAllTransactions,
-              signTransaction: wallet.signTransaction,
-            } as anchor.Wallet;
-            const { itemsRemaining } = await getCandyMachineState(
-              anchorWallet,
-              candyMachineId,
-              connection
-            );
-            dispatch(setRemaining(itemsRemaining));
-            if (itemsRemaining === 0) {
-              setIsSoldOut(true);
-            }
-            // if (addOne >= ${maxPerAddress}) {
-            //   alert(`You can only mint ${maxPerAddress} ${projectFullName} per Address`);
-            //   dispatch(setLoading(false));
-            //   return;
-            // }
-          } else {
-            setAlertState({
-              open: true,
-              message: "Mint failed! Please try again!",
-              severity: "error",
-            });
-          }
-        }
-      } catch (error: any) {
-        let message = error.msg || "Minting failed! Please try again!";
-        if (!error.msg) {
-          if (error.message.indexOf("0x138")) {
-          } else if (error.message.indexOf("0x137")) {
-            message = `SOLD OUT!`;
-          } else if (error.message.indexOf("0x135")) {
-            message = `Insufficient funds to mint. Please fund your wallet.`;
-          }
-        } else {
-          if (error.code === 311) {
-            message = `SOLD OUT!`;
-            setIsSoldOut(true);
-          } else if (error.code === 312) {
-            message = `Minting period hasn't started yet.`;
-          }
-        }
-        setAlertState({
-          open: true,
-          message,
-          severity: "error",
-        });
-      } finally {
-        if (wallet?.publicKey) {
-          const balance = await connection.getBalance(wallet?.publicKey);
-          setBalance(balance / LAMPORTS_PER_SOL);
-        }
-      }
-    }
+    //         const anchorWallet = {
+    //           publicKey: wallet.publicKey,
+    //           signAllTransactions: wallet.signAllTransactions,
+    //           signTransaction: wallet.signTransaction,
+    //         } as anchor.Wallet;
+    //         const { itemsRemaining } = await getCandyMachineState(
+    //           anchorWallet,
+    //           candyMachineId,
+    //           connection
+    //         );
+    //         dispatch(setRemaining(itemsRemaining));
+    //         if (itemsRemaining === 0) {
+    //           setIsSoldOut(true);
+    //         }
+    //         // if (addOne >= ${maxPerAddress}) {
+    //         //   alert(`You can only mint ${maxPerAddress} ${projectFullName} per Address`);
+    //         //   dispatch(setLoading(false));
+    //         //   return;
+    //         // }
+    //       } else {
+    //         setAlertState({
+    //           open: true,
+    //           message: "Mint failed! Please try again!",
+    //           severity: "error",
+    //         });
+    //       }
+    //     }
+    //   } catch (error: any) {
+    //     let message = error.msg || "Minting failed! Please try again!";
+    //     if (!error.msg) {
+    //       if (error.message.indexOf("0x138")) {
+    //       } else if (error.message.indexOf("0x137")) {
+    //         message = `SOLD OUT!`;
+    //       } else if (error.message.indexOf("0x135")) {
+    //         message = `Insufficient funds to mint. Please fund your wallet.`;
+    //       }
+    //     } else {
+    //       if (error.code === 311) {
+    //         message = `SOLD OUT!`;
+    //         setIsSoldOut(true);
+    //       } else if (error.code === 312) {
+    //         message = `Minting period hasn't started yet.`;
+    //       }
+    //     }
+    //     setAlertState({
+    //       open: true,
+    //       message,
+    //       severity: "error",
+    //     });
+    //   } finally {
+    //     if (wallet?.publicKey) {
+    //       const balance = await connection.getBalance(wallet?.publicKey);
+    //       setBalance(balance / LAMPORTS_PER_SOL);
+    //     }
+    //   }
+    // }
     dispatch(setLoading(false));
   };
 
